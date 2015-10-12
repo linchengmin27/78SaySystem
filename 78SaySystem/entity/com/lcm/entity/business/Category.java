@@ -22,6 +22,8 @@ public class Category extends BaseEntity {
 	private String shorthand;
 	private String introduction;
 	private Category parent;
+	private String url;
+	private Integer sort;
 	
 	public void setName(String name) {
 		this.name = name;
@@ -57,5 +59,21 @@ public class Category extends BaseEntity {
 
 	public String getShorthand() {
 		return shorthand;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setSort(Integer sort) {
+		this.sort = sort;
+	}
+
+	public Integer getSort() {
+		return sort;
 	}
 }

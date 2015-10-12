@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@include file="import.jsp" %>
 
 <!-- 样式切换 S -->
 <!--
@@ -54,76 +55,25 @@
                             <a href="${ctx}/page/index/index.jsp" class="dropdown-toggle">首页</a>
                             <b class="caret-out"></b>                        
                         </li>
+                        
+                        <c:forEach items="${sessionScope.categoryMap}" var="parent">
                         <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">世界之最
+                        	<c:if test="${parent.value.size() > 0}">
+                        	<a href="" class="dropdown-toggle" data-toggle="dropdown">${parent.key.name}
                                 <b class="caret"></b>                            
                             </a>
                             <ul class="dropdown-menu">
-                            	<li><a href="${ctx}/page/world/client/index.jsp">所有</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">动物之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">植物之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">人类之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">科技之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">自然之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">机械之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">文物之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">艺术之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">娱乐之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">建筑之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">商业之最</a></li>
-                                <li><a href="${ctx}/page/world/client/index.jsp">军事之最</a></li>
+                            	<c:forEach items="${parent.value}" var="children">
+                            	<li><a href="${children.url}">${children.name}</a></li>
+                            	</c:forEach>
                             </ul>
+                        	</c:if>
+                        	<c:if test="${parent.value.size() eq 0}">
+                        	<a href="${parent.key.url}" class="dropdown-toggle">${parent.key.name}</a>
+                        	</c:if>
                             <b class="caret-out"></b>                        
                         </li>
-                        <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">吉尼斯纪录
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                            	<li><a href="${ctx}/page/records/client/index.jsp">所有</a></li>
-                                <li><a href="${ctx}/page/records/client/index.jsp">人</a></li>
-                                <li><a href="${ctx}/page/records/client/index.jsp">事</a></li>
-                                <li><a href="${ctx}/page/records/client/index.jsp">物</a></li>
-                                <li><a href="${ctx}/page/records/lient/index.jsp">单位</a></li>
-                                <li><a href="${ctx}/page/records/client/index.jsp">国家</a></li>
-                                <li><a href="${ctx}/page/records/client/index.jsp">思维</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">未解之谜
-                                <b class="caret"></b>                            
-                            </a>
-                            <ul class="dropdown-menu">
-                            	<li><a href="${ctx}/page/mystery/client/index.jsp">所有</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">奇闻怪事</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">宇宙奥秘</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">自然之谜</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">考古发现</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">科学探秘</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">历史趣闻</a></li>
-                                <li><a href="${ctx}/page/mystery/client/index.jsp">UFO探秘</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="" class="dropdown-toggle" data-toggle="dropdown">天下奇葩
-                            	<b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="${ctx}/page/wonder/client/news_index.jsp">奇葩新闻</a></li>
-                                <li><a href="${ctx}/page/wonder/client/picture_index.jsp">奇葩图片</a></li>
-                            </ul>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="${ctx}/page/article/client/index.jsp" class="dropdown-toggle">热文辣文</a>
-                            <b class="caret-out"></b>                        
-                        </li>
-                        <li>
-                            <a href="${ctx}/page/contactus/index.jsp" class="dropdown-toggle">联系我们</a>
-                            <b class="caret-out"></b>                        
-                        </li>
+                        </c:forEach>
                         <li><a class="search"><i class="icon-search search-btn"></i></a></li>                               
                     </ul>
                     <div class="search-open">

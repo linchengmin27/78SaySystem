@@ -6,10 +6,17 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
+
+import com.lcm.entity.business.Category;
+import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.FileUploadUtil;
 import com.lcm.util.file.JsonUtil;
 import com.lcm.util.file.PageBean;
@@ -37,6 +44,18 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	private String imagesFileName;	// 封装上传文件名的属性，必须参数，命名为File参数名+FileName
 	private String dir; //存放上传图片的路径
 	private File images;// 封装上传文件域的属性，必须参数
+	
+	protected IArticleService articleService;
+	
+	protected void init() {
+		Map<Category, List<Category>> categoryMap = new LinkedHashMap<Category, List<Category>>();
+		List<Category> parents = articleService.getParentCategoryList();
+		for (Category parant: parents) {
+			List<Category> children = articleService.getChilrenCategoryList(parant.getId());
+			categoryMap.put(parant, children);
+		}
+		setAttrToSession("categoryMap", categoryMap);
+	}
 	
 	/**
 	 * 获取客户端的真实IP地址
@@ -265,5 +284,14 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	 */
 	public File getImages() {
 		return images;
+	}
+	
+	@Resource
+	public void setArticleService(IArticleService articleService) {
+		this.articleService = articleService;
+	}
+
+	public IArticleService getArticleService() {
+		return articleService;
 	}
 }

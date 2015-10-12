@@ -2,15 +2,15 @@
 Navicat MySQL Data Transfer
 
 Source Server         : localhost
-Source Server Version : 50528
+Source Server Version : 50626
 Source Host           : localhost:3306
-Source Database       : 78SaySystemDB
+Source Database       : 78saysystemdb
 
 Target Server Type    : MYSQL
-Target Server Version : 50528
+Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2015-10-09 17:24:50
+Date: 2015-10-12 22:54:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,47 +57,53 @@ CREATE TABLE `Category` (
   `shorthand` varchar(128) DEFAULT NULL COMMENT '简写',
   `introduction` varchar(1024) DEFAULT NULL COMMENT '描述',
   `parentId` bigint(20) DEFAULT NULL COMMENT '父级类别ID',
+  `url` varchar(256) DEFAULT NULL COMMENT 'URL',
+  `sort` int(11) DEFAULT '1' COMMENT '排序',
   `isDelete` bit(1) DEFAULT b'0' COMMENT '是否删除',
   `createTime` timestamp NULL DEFAULT NULL COMMENT '创建时间',
   `modifyTime` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '最后修改时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=37 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of Category
 -- ----------------------------
-INSERT INTO `Category` VALUES ('1', '世界之最', null, null, null, '', '2015-10-09 11:49:57', '2015-10-09 11:50:00');
-INSERT INTO `Category` VALUES ('2', '动物之最', null, null, '1', '', '2015-10-09 11:50:20', '2015-10-09 11:50:23');
-INSERT INTO `Category` VALUES ('3', '植物之最', null, null, '1', '', '2015-10-09 11:50:51', '2015-10-09 11:50:54');
-INSERT INTO `Category` VALUES ('4', '人类之最', null, null, '1', '', '2015-10-09 11:51:03', '2015-10-09 11:51:06');
-INSERT INTO `Category` VALUES ('5', '科技之最', null, null, '1', '', '2015-10-09 11:51:16', '2015-10-09 11:51:18');
-INSERT INTO `Category` VALUES ('6', '自然之最', null, null, '1', '', '2015-10-09 11:51:27', '2015-10-09 11:51:29');
-INSERT INTO `Category` VALUES ('7', '机械之最', null, null, '1', '', '2015-10-09 11:51:37', '2015-10-09 11:51:40');
-INSERT INTO `Category` VALUES ('8', '文物之最', null, null, '1', '', '2015-10-09 11:51:47', '2015-10-09 11:51:50');
-INSERT INTO `Category` VALUES ('9', '艺术之最', null, null, '1', '', '2015-10-09 11:51:57', '2015-10-09 11:52:00');
-INSERT INTO `Category` VALUES ('10', '娱乐之最', null, null, '1', '', '2015-10-09 11:52:08', '2015-10-09 11:52:10');
-INSERT INTO `Category` VALUES ('11', '建筑之最', null, null, '1', '', '2015-10-09 11:52:19', '2015-10-09 11:52:21');
-INSERT INTO `Category` VALUES ('12', '商业之最', null, null, '1', '', '2015-10-09 11:52:29', '2015-10-09 11:52:31');
-INSERT INTO `Category` VALUES ('13', '军事之最', null, null, '1', '', '2015-10-09 11:52:40', '2015-10-09 11:52:43');
-INSERT INTO `Category` VALUES ('14', '吉尼斯纪录', null, null, null, '', '2015-10-09 11:52:57', '2015-10-09 11:53:00');
-INSERT INTO `Category` VALUES ('15', '人', null, null, '14', '', '2015-10-09 11:53:14', '2015-10-09 11:53:18');
-INSERT INTO `Category` VALUES ('16', '事', null, null, '14', '', '2015-10-09 11:53:45', '2015-10-09 11:53:47');
-INSERT INTO `Category` VALUES ('17', '物', null, null, '14', '', '2015-10-09 11:54:04', '2015-10-09 11:54:06');
-INSERT INTO `Category` VALUES ('18', '单位', null, null, '14', '', '2015-10-09 11:54:24', '2015-10-09 11:54:27');
-INSERT INTO `Category` VALUES ('19', '国家', null, null, '14', '', '2015-10-09 11:54:35', '2015-10-09 11:54:41');
-INSERT INTO `Category` VALUES ('20', '思维', null, null, '14', '', '2015-10-09 11:54:51', '2015-10-09 11:54:55');
-INSERT INTO `Category` VALUES ('21', '未解之谜', null, null, null, '', '2015-10-09 11:55:09', '2015-10-09 11:55:10');
-INSERT INTO `Category` VALUES ('22', '奇闻怪事', '奇闻', '', '21', '', '2015-10-09 11:55:21', '2015-10-09 13:38:22');
-INSERT INTO `Category` VALUES ('23', '宇宙奥秘', '宇宙', '', '21', '', '2015-10-09 11:55:31', '2015-10-09 13:38:24');
-INSERT INTO `Category` VALUES ('24', '自然之谜', '自然', '', '21', '', '2015-10-09 11:55:39', '2015-10-09 13:38:28');
-INSERT INTO `Category` VALUES ('25', '考古发现', '考古', '', '21', '', '2015-10-09 11:55:48', '2015-10-09 13:38:30');
-INSERT INTO `Category` VALUES ('26', '科学探秘', '科学', '', '21', '', '2015-10-09 11:55:58', '2015-10-09 13:38:32');
-INSERT INTO `Category` VALUES ('27', '历史趣闻', '历史', '', '21', '', '2015-10-09 11:56:08', '2015-10-09 13:38:33');
-INSERT INTO `Category` VALUES ('28', 'UFO探秘', 'UFO', '', '21', '', '2015-10-09 11:56:18', '2015-10-09 13:38:35');
-INSERT INTO `Category` VALUES ('29', '天下奇葩', null, null, null, '', '2015-10-09 11:56:28', '2015-10-09 11:56:29');
-INSERT INTO `Category` VALUES ('30', '奇葩新闻', null, null, '29', '', '2015-10-09 11:56:39', '2015-10-09 11:56:41');
-INSERT INTO `Category` VALUES ('31', '奇葩图片', null, null, '29', '', '2015-10-09 11:56:52', '2015-10-09 11:56:54');
-INSERT INTO `Category` VALUES ('32', '热文辣文', null, null, null, '', '2015-10-09 11:57:05', '2015-10-09 11:57:06');
+INSERT INTO `Category` VALUES ('1', '世界之最', null, null, null, null, '1', '', '2015-10-09 11:49:57', '2015-10-09 11:50:00');
+INSERT INTO `Category` VALUES ('2', '动物之最', null, null, '1', null, '1', '', '2015-10-09 11:50:20', '2015-10-12 22:43:12');
+INSERT INTO `Category` VALUES ('3', '植物之最', null, null, '1', null, '2', '', '2015-10-09 11:50:51', '2015-10-12 22:43:05');
+INSERT INTO `Category` VALUES ('4', '人类之最', null, null, '1', null, '3', '', '2015-10-09 11:51:03', '2015-10-12 22:43:45');
+INSERT INTO `Category` VALUES ('5', '科技之最', null, null, '1', null, '4', '', '2015-10-09 11:51:16', '2015-10-12 22:43:46');
+INSERT INTO `Category` VALUES ('6', '自然之最', null, null, '1', null, '5', '', '2015-10-09 11:51:27', '2015-10-12 22:43:47');
+INSERT INTO `Category` VALUES ('7', '机械之最', null, null, '1', null, '6', '', '2015-10-09 11:51:37', '2015-10-12 22:43:48');
+INSERT INTO `Category` VALUES ('8', '文物之最', null, null, '1', null, '7', '', '2015-10-09 11:51:47', '2015-10-12 22:43:50');
+INSERT INTO `Category` VALUES ('9', '艺术之最', null, null, '1', null, '8', '', '2015-10-09 11:51:57', '2015-10-12 22:43:51');
+INSERT INTO `Category` VALUES ('10', '娱乐之最', null, null, '1', null, '9', '', '2015-10-09 11:52:08', '2015-10-12 22:43:53');
+INSERT INTO `Category` VALUES ('11', '建筑之最', null, null, '1', null, '10', '', '2015-10-09 11:52:19', '2015-10-12 22:43:55');
+INSERT INTO `Category` VALUES ('12', '商业之最', null, null, '1', null, '11', '', '2015-10-09 11:52:29', '2015-10-12 22:43:56');
+INSERT INTO `Category` VALUES ('13', '军事之最', null, null, '1', null, '12', '', '2015-10-09 11:52:40', '2015-10-12 22:43:57');
+INSERT INTO `Category` VALUES ('14', '吉尼斯纪录', null, null, null, null, '2', '', '2015-10-09 11:52:57', '2015-10-12 22:43:27');
+INSERT INTO `Category` VALUES ('15', '人', null, null, '14', null, '1', '', '2015-10-09 11:53:14', '2015-10-12 22:32:35');
+INSERT INTO `Category` VALUES ('16', '事', null, null, '14', null, '2', '', '2015-10-09 11:53:45', '2015-10-12 22:44:01');
+INSERT INTO `Category` VALUES ('17', '物', null, null, '14', null, '3', '', '2015-10-09 11:54:04', '2015-10-12 22:44:02');
+INSERT INTO `Category` VALUES ('18', '单位', null, null, '14', null, '4', '', '2015-10-09 11:54:24', '2015-10-12 22:44:03');
+INSERT INTO `Category` VALUES ('19', '国家', null, null, '14', null, '5', '', '2015-10-09 11:54:35', '2015-10-12 22:44:04');
+INSERT INTO `Category` VALUES ('20', '思维', null, null, '14', null, '6', '', '2015-10-09 11:54:51', '2015-10-12 22:44:08');
+INSERT INTO `Category` VALUES ('21', '未解之谜', null, null, null, null, '3', '', '2015-10-09 11:55:09', '2015-10-12 22:43:27');
+INSERT INTO `Category` VALUES ('22', '奇闻怪事', '奇闻', '', '21', null, '1', '', '2015-10-09 11:55:21', '2015-10-09 13:38:22');
+INSERT INTO `Category` VALUES ('23', '宇宙奥秘', '宇宙', '', '21', null, '2', '', '2015-10-09 11:55:31', '2015-10-12 22:44:12');
+INSERT INTO `Category` VALUES ('24', '自然之谜', '自然', '', '21', null, '3', '', '2015-10-09 11:55:39', '2015-10-12 22:44:12');
+INSERT INTO `Category` VALUES ('25', '考古发现', '考古', '', '21', null, '4', '', '2015-10-09 11:55:48', '2015-10-12 22:44:13');
+INSERT INTO `Category` VALUES ('26', '科学探秘', '科学', '', '21', null, '5', '', '2015-10-09 11:55:58', '2015-10-12 22:44:14');
+INSERT INTO `Category` VALUES ('27', '历史趣闻', '历史', '', '21', null, '6', '', '2015-10-09 11:56:08', '2015-10-12 22:44:17');
+INSERT INTO `Category` VALUES ('28', 'UFO探秘', 'UFO', '', '21', null, '7', '', '2015-10-09 11:56:18', '2015-10-12 22:44:19');
+INSERT INTO `Category` VALUES ('29', '天下奇葩', null, null, null, null, '4', '', '2015-10-09 11:56:28', '2015-10-12 22:43:28');
+INSERT INTO `Category` VALUES ('30', '奇葩新闻', null, null, '29', null, '1', '', '2015-10-09 11:56:39', '2015-10-09 11:56:41');
+INSERT INTO `Category` VALUES ('31', '奇葩图片', null, null, '29', null, '2', '', '2015-10-09 11:56:52', '2015-10-12 22:44:20');
+INSERT INTO `Category` VALUES ('32', '热文辣文', null, null, null, null, '5', '', '2015-10-09 11:57:05', '2015-10-12 22:43:29');
+INSERT INTO `Category` VALUES ('33', '联系我们', null, null, null, null, '6', '', '2015-10-12 22:37:01', '2015-10-12 22:43:31');
+INSERT INTO `Category` VALUES ('34', '所有', null, null, '1', null, '0', '', '2015-10-12 22:44:39', '2015-10-12 22:44:41');
+INSERT INTO `Category` VALUES ('35', '所有', null, null, '14', null, '0', '', '2015-10-12 22:45:08', '2015-10-12 22:45:09');
+INSERT INTO `Category` VALUES ('36', '所有', null, null, '21', null, '0', '', '2015-10-12 22:45:28', '2015-10-12 22:45:30');
 
 -- ----------------------------
 -- Table structure for `Chapter`
