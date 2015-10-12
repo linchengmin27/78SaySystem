@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 项目起始页面 -->
+	<welcome-file-list>
+	  <welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+  
+   <!-- spring applicationContext配置文件的路径,多个路径,号隔开 -->
+  	<!-- 
+  	context-param是在容器启动后最先被执行的,并且被放入到容器上下文中
+  	供spring的ContextLoaderListener监听器使用	
+ 	 -->
+  	<context-param>
+  		<param-name>contextConfigLocation</param-name>
+  		<param-value>classpath:applicationContext.xml</param-value>
+  	</context-param>
+  
+  <!-- spring监听器,读取spring的配置文件 -->
+  <listener>
+  	<listener-class>com.lcm.util.filter.CacheLoaderUtil</listener-class> 
+  </listener>
+  
+  <!-- 用来防止内存泄露的监听器 -->
+  <listener>
+  	<listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+  </listener>
+  
+  <!-- spring编码过滤器 -->
+  <filter>
+  	<filter-name>encodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>UTF-8</param-value>
+  	</init-param>
+  	<init-param>
+  		<param-name>forceEncoding</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
+  </filter>
+  
+  <!-- 防止在使用hibernate延迟加载的时候,出现因session被关闭,导致的延迟加载数据异常  -->
+  <filter>
+		<filter-name>hibernateFilter</filter-name>
+		<filter-class>
+			org.springframework.orm.hibernate3.support.OpenSessionInViewFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>hibernateFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- url重写的过滤器 -->
+	<filter>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<filter-class>
+			org.tuckey.web.filters.urlrewrite.UrlRewriteFilter
+		</filter-class>
+		<init-param>  
+	        <param-name>confPath</param-name>  
+	        <param-value>/WEB-INF/classes/urlrewrite.xml</param-value>  
+        </init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>UrlRewriteFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+  	<!-- 配置Struts2框架 -->
+ 	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+  	</filter>
+	
+  	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>
+		<dispatcher>REQUEST</dispatcher>  
+      	<dispatcher>FORWARD</dispatcher>  
+      	<dispatcher>INCLUDE</dispatcher> 
+  	</filter-mapping>
+  
+  	<error-page>
+		<error-code>404</error-code>
+		<location>/404.jsp</location>
+  	</error-page>
+  
+  	<error-page>
+		<error-code>500</error-code>
+		<location>/404.jsp</location>
+  	</error-page>
+</web-app>
+

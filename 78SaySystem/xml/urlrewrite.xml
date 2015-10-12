@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+          "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!--
+	URL伪静态配置文件 
+	add by linchengmin on 2014-6-20 10:59:00
+	
+	本次URL伪静态主要是根据模块进行伪静态
+	伪静态的书写格式为： 
+	<rule>
+		<note>[伪静态功能的说明]</note>
+		<from>[伪静态的规则]</from>
+		<to>[伪静态的跳转地址规则]</to>
+	</rule>
+	
+	注意事项：
+	（1）伪静态的规则,在命名规范文档中已经给出,请到SVN相关的位置进行查看,
+	命名文档中的模块名称就以struts的配置文件的namespace为准
+	（2）伪静态的规则中涉及到的参数规则大体为整型性的参数对应整型的正则表达式,
+	任意性则对应任意性的正则表达式
+	1）正整数         [0-9]\d*
+	2）只能是中文的   [\u4e00-\u9fa5]*
+	3）只有大小写字母  [A-z]*
+	（3）在编写伪静态配置文件的时候,记得写清楚编写的模块及其编写人、
+	编写时间,其格式和Struts2配置文件的相同
+-->
+<urlrewrite>
+
+	<rule>
+		<note>网站首页</note>
+		<from>^/index.html$</from>
+		<to>/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说榜单</note>
+		<from>^/rank/index.html$</from>
+		<to>/rank/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说榜单-最新入库人气榜</note>
+		<from>^/rank/new/list.html$</from>
+		<to>/rank/new/list.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说榜单-总字数榜</note>
+		<from>^/rank/count/list.html$</from>
+		<to>/rank/count/list.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说榜单-类型小说排行榜</note>
+		<from>^/rank/type/list.html$</from>
+		<to>/rank/type/list.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说宝库</note>
+		<from>^/store/index.html$</from>
+		<to>/store/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>小说宝库-按类型</note>
+		<from>^/store/([0-9]\d*+)/index.html$</from>
+		<to>/store/index.action?categoryId=$1</to>
+	</rule>
+	
+	<rule>
+		<note>小说介绍</note>
+		<from>^/book/([0-9]\d*+)/index.html$</from>
+		<to>/book/index.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>小说目录</note>
+		<from>^/book/([0-9]\d*+)/chapter/index.html$</from>
+		<to>/book/chapter.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>小说阅读</note>
+		<from>^/book/detail/([0-9]\d*+).html$</from>
+		<to>/book/detail.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>小说立即阅读</note>
+		<from>^/book/read/([0-9]\d*+).html$</from>
+		<to>/book/read.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>上一章节</note>
+		<from>^/book/pre/([0-9]\d*+)/([0-9]\d*+).html$</from>
+		<to>/book/pre/detail?id=$1&amp;chapter=$2</to>
+	</rule>
+	
+	<rule>
+		<note>下一章节</note>
+		<from>^/book/next/([0-9]\d*+)/([0-9]\d*+).html$</from>
+		<to>/book/next/detail?id=$1&amp;chapter=$2</to>
+	</rule>
+	
+	<rule>
+		<note>放在桌面</note>
+		<from>^/book/desktop/([0-9]\d*+).html$</from>
+		<to>/book/toDesktop.action?id=$1</to>
+	</rule>
+	
+	<rule>
+		<note>下载小说</note>
+		<from>^/book/download/([0-9]\d*+).html$</from>
+		<to>/download.action?id=$1</to>
+	</rule>
+</urlrewrite>
+
