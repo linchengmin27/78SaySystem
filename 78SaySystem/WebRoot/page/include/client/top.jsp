@@ -52,7 +52,7 @@
                 <div class="nav-collapse collapse">                                     
                     <ul class="nav top-2">
                         <li class="active">
-                            <a href="${ctx}/page/index/index.jsp" class="dropdown-toggle">首页</a>
+                            <a href="${ctx}/index.action" class="dropdown-toggle">首页</a>
                             <b class="caret-out"></b>                        
                         </li>
                         
@@ -64,7 +64,7 @@
                             </a>
                             <ul class="dropdown-menu">
                             	<c:forEach items="${parent.value}" var="children">
-                            	<li><a href="${children.url}">${children.name}</a></li>
+                            	<li><a href="${ctx}/${children.url}">${children.name}</a></li>
                             	</c:forEach>
                             </ul>
                         	</c:if>

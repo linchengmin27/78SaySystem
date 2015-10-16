@@ -6,8 +6,11 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.lcm.entity.base.BaseEntity;
 import com.lcm.entity.base.EntityParamType;
+import com.lcm.entity.business.Article;
 import com.lcm.entity.business.Category;
+import com.lcm.entity.business.Chapter;
 import com.lcm.service.base.BaseService;
 import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.StringUtil;
@@ -40,5 +43,67 @@ public class ArticleService extends BaseService implements IArticleService {
 		hql += " order by sort asc";
 		paramMap.put("categoryId", id);
 		return dao.getEntities(hql, paramMap);
+	}
+	
+	/**
+	 * 根据文章类型获取相关的文章个数
+	 * */
+	public long countArticle(Long categoryId) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "select count(*) from Article where isDelete=:isDelete and (category.id=:categoryId or category.parent.id=:categoryId)";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("categoryId", categoryId);
+		
+		return dao.getAllRow(hql, paramMap);
+	}
+	
+	/**
+	 * 根据文章类型获取相关的文章信息
+	 * */
+	public List<Article> getArticleList(Long categoryId, Integer page, 
+			Integer pageSize, String orderBy) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Article where isDelete=:isDelete and (category.id=:categoryId or category.parent.id=:categoryId)";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("categoryId", categoryId);
+		
+		if(!StringUtil.isEmpty(orderBy)) {
+			hql += " order by " + orderBy;
+		}
+		
+		return dao.getEntities(hql, paramMap, page, pageSize);
+	}
+	
+	/**
+	 * 根据ID,获取指定的文章信息
+	 * */
+	public Article getArticleDetail(Long id) {
+		Article article = dao.getEntity(Article.class, id);
+		if(article != null) {
+			if(article.getIsDelete() == EntityParamType.IsDelete.NO) {
+				return article;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * 根据ID,获取指定的文章章节信息
+	 * */
+	public Chapter getArticleChapter(Long id, Long chapterId) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Chapter where isDelete=:isDelete and article.id=:articleId";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("articleId", id);
+		
+		if(chapterId != null) {
+			hql += " and id=:chapterId";
+			paramMap.put("chapterId", chapterId);
+		}
+		
+		hql += " order by sort asc";
+		
+		List<Chapter> list = dao.getEntities(hql, paramMap);
+		return selectOne(list);
 	}
 }

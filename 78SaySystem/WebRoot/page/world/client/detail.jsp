@@ -29,9 +29,9 @@
 		<div class="container">
 			<h1 class="color-green pull-left">世界之最 </h1>
 	        <ul class="pull-right breadcrumb">
-	            <li><a href="index.html">首页</a> <span class="divider">/</span></li>
-	            <li>世界之最 <span class="divider">/</span></li>
-	            <li class="active">世界上最长的蛇</li>
+	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/world/index.action">世界之最</a> <span class="divider">/</span></li>
+	            <li class="active">${entity.title}</li>
 	        </ul>
 	    </div><!--/container-->
 	</div>
@@ -43,29 +43,25 @@
 	        <!-- Left Sidebar -->
 	    	<div class="span9">
 	        	<div class="blog margin-bottom-30">
-	            	<h3>世界上最长的蛇</h3>
+	            	<h3>${entity.title}</h3>
 	            	<ul class="unstyled inline blog-info">
-	                	<li><i class="icon-calendar"></i> 2015年08月07日</li>
-	                	<li><i class="icon-pencil"></i> 张思思</li>
-	                	<li><i class="icon-comments"></i> <a href="#">24 评论</a></li>
+	                	<li><i class="icon-calendar"></i> ${entity.displayCreateTime}</li>
+	                	<li><i class="icon-pencil"></i> ${entity.editor}</li>
+	                	<li><i class="icon-comments"></i> <a href="javascript:void(0);">${entity.reviews} 评论</a></li>
 	                	<li>
 	                        <i class="icon-tags"></i> 
-	                        <a href="#">Technology</a> 
-	                        <a href="#">Education</a>
-	                        <a href="#">Internet</a>
-	                        <a href="#">Media</a>
+	                        <c:set value="${entity.tag.split(',')}" var="tags"></c:set>
+	                        <c:forEach items="${tags}" var="t">
+	                        <a href="#">${t}</a>&nbsp;&nbsp;
+	                        </c:forEach>
 	                    </li>
 	                </ul>
 	                
 	            	<blockquote class="hero">
-	                    <small>印度尼西亚一家小公园展出了一条非常罕见的蛇，身长14.85米，体重447公斤，这是近100年来人类所发现的最长最大的蛇，也是目前世界上所知最长的蛇。</small>
+	                    <small>${entity.abstract_}</small>
 	                </blockquote>
 	            	
-	                <div class="blog-img" style="text-align: center;"><img src="${ctx}/upload/2330525222-0.jpg" alt="" /></div>
-	                <p>印度尼西亚一家小公园展出了一条非常罕见的蛇，身长14.85米，体重447公斤，这是近100年来人类所发现的最长最大的蛇，也是目前世界上所知最长的蛇。</p>
-	                <p>这条大蛇是在印尼西部苏门答腊岛的一个原始森林中被发现的，当地人将它捕获后卖给了公园，公园的管理人员将这条大蛇取名为“桂花”。虽然名字听起来比较温柔，但据说“桂花”的大口一旦张开非常吓人，可以很轻松地吞下整整一个人。</p>
-	                <p>印尼的国家科学研究所、农业研究所等学术机构都对这条蛇进行了检验，确认了其身长、体重以及品种。很多动物学家都表示，从来没有见过这么大、这么长的蛇。</p>
-	            	<p>据说，要制服这么大的蛇，至少需要8到10个壮年男子。此前，吉尼斯世界记录中所记载和公认的世界最长蛇是一条身上花纹呈网状的大蟒，身长10米，已于1912年在印尼被射杀。研究所的动物学家还透露说，此次发现的这条世界上最长的蛇是东南亚的“土著蛇”。</p>
+	                ${chapter.content}
 	            </div>
 	
 				<hr />

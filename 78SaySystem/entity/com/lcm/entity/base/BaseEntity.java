@@ -2,10 +2,14 @@ package com.lcm.entity.base;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Transient;
+import org.aspectj.weaver.patterns.ThisOrTargetAnnotationPointcut;
 
 @MappedSuperclass
 public class BaseEntity implements Serializable {
@@ -17,6 +21,8 @@ public class BaseEntity implements Serializable {
 	private Boolean isDelete;
 	private Timestamp createTime;
 	private Timestamp modifyTime;
+	
+	private String displayCreateTime;
 	
 	@Id
 	@GeneratedValue
@@ -54,6 +60,17 @@ public class BaseEntity implements Serializable {
 	
 	public void setModifyTime(Timestamp modifyTime) {
 		this.modifyTime = modifyTime;
+	}
+
+	public void setDisplayCreateTime(String displayCreateTime) {
+		this.displayCreateTime = displayCreateTime;
+	}
+
+	@Transient
+	public String getDisplayCreateTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		this.displayCreateTime = sdf.format(this.createTime);
+		return displayCreateTime;
 	}
 	
 	

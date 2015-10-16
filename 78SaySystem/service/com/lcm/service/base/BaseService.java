@@ -1,5 +1,7 @@
 package com.lcm.service.base;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.lcm.dao.base.Dao;
@@ -18,5 +20,13 @@ public abstract class BaseService {
 			return "";
 		}
 		return "%" + value + "%";
+	}
+	
+	protected <T> T selectOne(List<T> list){
+		if(list != null && list.size() > 0){
+			return list.get(0);
+		}else{
+			return null;
+		}
 	}
 }
