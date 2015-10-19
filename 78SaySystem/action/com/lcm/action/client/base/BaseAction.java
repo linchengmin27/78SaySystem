@@ -20,6 +20,7 @@ import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.FileUploadUtil;
 import com.lcm.util.file.JsonUtil;
 import com.lcm.util.file.PageBean;
+import com.lcm.util.file.PropertiesUtil;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -101,6 +102,10 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	    return ipAddress; 
 	}
 
+	protected String replaceContent(String content) {
+		return content.replace("[basePath]", PropertiesUtil.BASE_PATH);
+	}
+	
 	protected void setAttrToRequest(String key, Object value) {
 		ServletActionContext.getRequest().setAttribute(key, value);
 	}

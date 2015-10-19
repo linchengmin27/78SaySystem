@@ -23,6 +23,7 @@ public class BaseEntity implements Serializable {
 	private Timestamp modifyTime;
 	
 	private String displayCreateTime;
+	private String displayFullTime;
 	
 	@Id
 	@GeneratedValue
@@ -71,6 +72,17 @@ public class BaseEntity implements Serializable {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
 		this.displayCreateTime = sdf.format(this.createTime);
 		return displayCreateTime;
+	}
+
+	public void setDisplayFullTime(String displayFullTime) {
+		this.displayFullTime = displayFullTime;
+	}
+
+	@Transient
+	public String getDisplayFullTime() {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		this.displayFullTime = sdf.format(this.createTime);
+		return displayFullTime;
 	}
 	
 	

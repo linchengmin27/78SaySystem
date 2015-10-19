@@ -6,8 +6,10 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import com.lcm.action.client.base.BaseAction;
 import com.lcm.entity.business.Article;
+import com.lcm.entity.business.Category;
 import com.lcm.entity.business.Chapter;
 import com.lcm.util.file.PageBean;
+import com.lcm.util.file.PropertiesUtil;
 import com.lcm.util.file.StringUtil;
 
 @ParentPackage("default")
@@ -32,8 +34,9 @@ public class WorldAction extends BaseAction<Article> {
 	public String index() {
 		pageSize = 12;
 		if(StringUtil.isEmpty(categoryId)) categoryId = 1L;
+		entity.setCategory(articleService.getCategoryDetail(categoryId));
 		long allRow = articleService.countArticle(categoryId);
-		List<Article> list = articleService.getArticleList(categoryId, page, pageSize, null);
+		List<Article> list = articleService.getArticleList(categoryId, page, pageSize, " createTime desc");
 		pageBean = new PageBean<Article>(list, allRow, page, pageSize);
 		return SUCCESS;
 	}
@@ -42,6 +45,7 @@ public class WorldAction extends BaseAction<Article> {
 	public String detail() {
 		entity = articleService.getArticleDetail(entity.getId());
 		chapter = articleService.getArticleChapter(entity.getId(), chapterId);
+		chapter.setContent(replaceContent(chapter.getContent()));
 		return SUCCESS;
 	}
 
@@ -60,5 +64,5 @@ public class WorldAction extends BaseAction<Article> {
 	public Chapter getChapter() {
 		return chapter;
 	}
-	
+
 }

@@ -25,6 +25,19 @@ public class ArticleService extends BaseService implements IArticleService {
 	}
 	
 	/**
+	 * 根据ID获取指定的文章类型
+	 **/
+	public Category getCategoryDetail(Long id) {
+		Category category = dao.getEntity(Category.class, id);
+		if(category != null) {
+			if(category.getIsDelete() == EntityParamType.IsDelete.NO) {
+				return category;
+			}
+		}
+		return null;
+	}
+	
+	/**
 	 * 根据父级获取子级类别信息
 	 * */
 	public List<Category> getChilrenCategoryList(Long id) {

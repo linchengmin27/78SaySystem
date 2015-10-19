@@ -13,6 +13,11 @@ public interface IArticleService {
 	public List<Category> getParentCategoryList();
 	
 	/**
+	 * 根据ID获取指定的文章类型
+	 **/
+	public Category getCategoryDetail(Long id);
+	
+	/**
 	 * 根据父级获取子级类别信息
 	 * */
 	public List<Category> getChilrenCategoryList(Long id);
