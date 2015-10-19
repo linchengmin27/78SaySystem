@@ -18,7 +18,13 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../../include/client/style.jsp" %>
-
+	
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var url = basePath + '/mystery/detail.action?id=${entity.id}&page=' + page;
+		window.location.href = url;
+	}
+	</script>
   </head>
   
   <body>
@@ -27,10 +33,10 @@
   	<!-- 面包屑导航 S -->
   	<div class="breadcrumbs margin-bottom-40">
 		<div class="container">
-			<h1 class="color-green pull-left">世界之最 </h1>
+			<h1 class="color-green pull-left">未接之谜 </h1>
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
-	            <li><a href="${ctx}/world/index.action">世界之最</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/mystery/index.action">未接之谜</a> <span class="divider">/</span></li>
 	            <li class="active">${entity.title}</li>
 	        </ul>
 	    </div><!--/container-->
@@ -62,7 +68,7 @@
 	                </blockquote>
 	            	
 	                ${chapter.content}
-	                <%@include file="../../include/client/detail_ajax_pager.jsp" %>
+	                <%@include file="../../include/client/detail_ajax_pager.jsp" %>  
 	            </div>
 	
 				<hr />

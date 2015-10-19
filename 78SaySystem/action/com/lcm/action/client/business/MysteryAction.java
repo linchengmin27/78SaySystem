@@ -1,9 +1,11 @@
 package com.lcm.action.client.business;
 
 import java.util.List;
+
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
+
 import com.lcm.action.client.base.BaseAction;
 import com.lcm.entity.business.Article;
 import com.lcm.entity.business.Chapter;
@@ -11,27 +13,27 @@ import com.lcm.util.file.PageBean;
 import com.lcm.util.file.StringUtil;
 
 @ParentPackage("default")
-public class WorldAction extends BaseAction<Article> {
+public class MysteryAction extends BaseAction<Article> {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 701597977614851395L;
-	private static final String PATH = "/page/world/client";
+	private static final long serialVersionUID = -8633583439591120047L;
+	private static final String PATH = "/page/mystery/client";
 	private Long categoryId;
 	private Long chapterId;
 	private Chapter chapter;
-	
+	 
 	public Article getModel() {
 		init();
 		if(entity == null) entity = new Article();
 		return entity;
 	}
-
-	@Action(value = "/world/index", results = {@Result(name = "success", location = PATH + "/index.jsp") })  
+	
+	@Action(value = "/mystery/index", results = {@Result(name = "success", location = PATH + "/index.jsp") })  
 	public String index() {
 		pageSize = 12;
-		if(StringUtil.isEmpty(categoryId)) categoryId = 1L;
+		if(StringUtil.isEmpty(categoryId)) categoryId = 21L;
 		entity.setCategory(articleService.getCategoryDetail(categoryId));
 		long allRow = articleService.countArticle(categoryId);
 		List<Article> list = articleService.getArticleList(categoryId, page, pageSize, " createTime desc");
@@ -39,8 +41,10 @@ public class WorldAction extends BaseAction<Article> {
 		return SUCCESS;
 	}
 	
-	@Action(value = "/world/detail", results = {@Result(name = "success", location = PATH + "/detail.jsp") })  
+	@Action(value = "/mystery/detail", results = {@Result(name = "success", location = PATH + "/detail.jsp") })  
 	public String detail() {
+		entity = articleService.getArticleDetail(entity.getId());
+		
 		if(page <= 1) {
 			chapter = articleService.getArticleChapter(entity.getId(), chapterId);
 		} else {
@@ -66,6 +70,14 @@ public class WorldAction extends BaseAction<Article> {
 		return categoryId;
 	}
 
+	public void setChapterId(Long chapterId) {
+		this.chapterId = chapterId;
+	}
+
+	public Long getChapterId() {
+		return chapterId;
+	}
+
 	public void setChapter(Chapter chapter) {
 		this.chapter = chapter;
 	}
@@ -73,5 +85,4 @@ public class WorldAction extends BaseAction<Article> {
 	public Chapter getChapter() {
 		return chapter;
 	}
-
 }

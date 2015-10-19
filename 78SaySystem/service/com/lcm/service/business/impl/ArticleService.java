@@ -103,6 +103,21 @@ public class ArticleService extends BaseService implements IArticleService {
 	/**
 	 * 根据ID,获取指定的文章章节信息
 	 * */
+	public List<Chapter> getArticleChapterList(Long id, Integer page, Integer pageSize) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Chapter where isDelete=:isDelete and article.id=:articleId";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("articleId", id);
+		
+		hql += " order by sort asc";
+		
+		List<Chapter> list = dao.getEntities(hql, paramMap, page, pageSize);
+		return list;
+	}
+	
+	/**
+	 * 根据ID,获取指定的文章章节信息
+	 * */
 	public Chapter getArticleChapter(Long id, Long chapterId) {
 		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
 		String hql = "from Chapter where isDelete=:isDelete and article.id=:articleId";

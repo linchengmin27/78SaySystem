@@ -16,6 +16,7 @@ import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 
 import com.lcm.entity.business.Category;
+import com.lcm.entity.business.Chapter;
 import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.FileUploadUtil;
 import com.lcm.util.file.JsonUtil;
@@ -34,6 +35,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	protected Integer pageSize = 10;
 	protected T entity;
 	protected PageBean<T> pageBean;
+	protected PageBean<Chapter> chapterPageBean;
 	public static final String SESSION_ADMIN = "sessionAdmin";
 	public static final String SESSION_USER = "sessionUser";
 	
@@ -298,5 +300,13 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 
 	public IArticleService getArticleService() {
 		return articleService;
+	}
+
+	public void setChapterPageBean(PageBean<Chapter> chapterPageBean) {
+		this.chapterPageBean = chapterPageBean;
+	}
+
+	public PageBean<Chapter> getChapterPageBean() {
+		return chapterPageBean;
 	}
 }

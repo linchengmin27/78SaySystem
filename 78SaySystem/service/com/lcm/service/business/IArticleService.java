@@ -41,6 +41,11 @@ public interface IArticleService {
 	/**
 	 * 根据ID,获取指定的文章章节信息
 	 * */
+	public List<Chapter> getArticleChapterList(Long id, Integer page, Integer pageSize);
+	
+	/**
+	 * 根据ID,获取指定的文章章节信息
+	 * */
 	public Chapter getArticleChapter(Long id, Long chapterId);
 	
 }
