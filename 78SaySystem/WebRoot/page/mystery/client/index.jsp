@@ -59,6 +59,18 @@
   	<div class="container"> 	
 		<div class="row-fluid"> 
 	        <div id="w">    
+	        	<div class="sort" id="sort">
+					<ul class="unstyled inline"> 
+	                	<li><a href="${ctx}/mystery/index.action" <c:if test="${categoryId eq 21}">class="selected"</c:if>>所有</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=22" <c:if test="${categoryId eq 22}">class="selected"</c:if>>奇闻</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=23" <c:if test="${categoryId eq 23}">class="selected"</c:if>>宇宙</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=24" <c:if test="${categoryId eq 24}">class="selected"</c:if>>自然</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=25" <c:if test="${categoryId eq 25}">class="selected"</c:if>>考古</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=26" <c:if test="${categoryId eq 26}">class="selected"</c:if>>科学</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=27" <c:if test="${categoryId eq 27}">class="selected"</c:if>>历史</a></li>
+	                	<li><a href="${ctx}/mystery/index.action?categoryId=28" <c:if test="${categoryId eq 28}">class="selected"</c:if>>UFO</a></li>
+	                </ul>
+	            </div>
 	            <ul class="portfolio recent-work clearfix"> 
 	            	<c:forEach items="${pageBean.list}" var="article" varStatus="st">
 	                <li data-id="id-${st.index + 1}" class="web" title="${article.title}">

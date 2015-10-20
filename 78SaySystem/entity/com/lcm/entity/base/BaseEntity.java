@@ -70,7 +70,9 @@ public class BaseEntity implements Serializable {
 	@Transient
 	public String getDisplayCreateTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
-		this.displayCreateTime = sdf.format(this.createTime);
+		if(this.createTime != null) {
+			this.displayCreateTime = sdf.format(this.createTime);
+		}
 		return displayCreateTime;
 	}
 
@@ -81,7 +83,9 @@ public class BaseEntity implements Serializable {
 	@Transient
 	public String getDisplayFullTime() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		this.displayFullTime = sdf.format(this.createTime);
+		if(this.createTime != null) {
+			this.displayFullTime = sdf.format(this.createTime);
+		}
 		return displayFullTime;
 	}
 	
