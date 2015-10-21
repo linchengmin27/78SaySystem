@@ -1,6 +1,9 @@
 package com.lcm.entity.business;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.lcm.entity.base.BaseEntity;
@@ -17,6 +20,7 @@ public class Comment extends BaseEntity {
 	private String name;
 	private String content;
 	private String logo;
+	private Article article;
 	
 	public String getName() {
 		return name;
@@ -40,5 +44,15 @@ public class Comment extends BaseEntity {
 	
 	public void setLogo(String logo) {
 		this.logo = logo;
+	}
+
+	public void setArticle(Article article) {
+		this.article = article;
+	}
+
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="articleId")
+	public Article getArticle() {
+		return article;
 	}
 }

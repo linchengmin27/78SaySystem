@@ -3,7 +3,7 @@
 
 <input type="hidden" name="currentPage" id="currentPage" value="${pageBean.currentPage}"/>
 
-<c:if test="${chapterPageBean.allRow > 0}">
+<c:if test="${chapterPageBean.allRow > 0 && chapterPageBean.totalPage > 1}">
 <div class="pagination pagination-centered">
     <ul>
         <c:choose>

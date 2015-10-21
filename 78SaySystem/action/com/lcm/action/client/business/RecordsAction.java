@@ -32,7 +32,6 @@ public class RecordsAction extends BaseAction<Article> {
 	
 	@Action(value = "/records/index", results = {@Result(name = "success", location = PATH + "/index.jsp") })  
 	public String index() {
-		pageSize = 5;
 		if(StringUtil.isEmpty(categoryId)) categoryId = 14L;
 		entity.setCategory(articleService.getCategoryDetail(categoryId));
 		long allRow = articleService.countArticle(categoryId);

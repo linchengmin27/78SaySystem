@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class AddressUtil {
@@ -16,45 +17,48 @@ public class AddressUtil {
      * @return 
      * @throws Exception 
      */  
-    public String getAddress(String params, String encoding) throws Exception{  
-          
-        String path = "http://ip.taobao.com/service/getIpInfo.php";  
-          
-        String returnStr = this.getRs(path, params, encoding);  
-          
-        JSONObject json=null;  
-          
-        if(returnStr != null){  
-              
-            json = new JSONObject(returnStr);  
-              
-            if("0".equals(json.get("code").toString())){  
-                  
-                StringBuffer buffer = new StringBuffer();  
-                  
-                //buffer.append(decodeUnicode(json.optJSONObject("data").getString("country")));//国家  
-                  
-                //buffer.append(decodeUnicode(json.optJSONObject("data").getString("area")));//地区  
-                  
-                buffer.append(decodeUnicode(json.optJSONObject("data").getString("region")));//省份  
-                  
-                buffer.append(decodeUnicode(json.optJSONObject("data").getString("city")));//市区  
-                  
-                buffer.append(decodeUnicode(json.optJSONObject("data").getString("county")));//地区  
-                  
-                buffer.append(decodeUnicode(json.optJSONObject("data").getString("isp")));//ISP公司  
-                  
-                System.out.println(buffer.toString());  
-                  
-                return buffer.toString();  
-                  
-            }else{  
-                  
-                return "获取地址失败�?";  
-                  
-            }  
-              
-        }  
+    public String getAddress(String params, String encoding){  
+        try {
+			String path = "http://ip.taobao.com/service/getIpInfo.php";  
+			  
+			String returnStr = this.getRs(path, params, encoding);  
+			  
+			JSONObject json=null;  
+			  
+			if(returnStr != null){  
+			      
+			    json = new JSONObject(returnStr);  
+			      
+			    if("0".equals(json.get("code").toString())){  
+			          
+			        StringBuffer buffer = new StringBuffer();  
+			          
+			        //buffer.append(decodeUnicode(json.optJSONObject("data").getString("country")));//国家  
+			          
+			        //buffer.append(decodeUnicode(json.optJSONObject("data").getString("area")));//地区  
+			          
+			        buffer.append(decodeUnicode(json.optJSONObject("data").getString("region")));//省份  
+			          
+			        buffer.append(decodeUnicode(json.optJSONObject("data").getString("city")));//市区  
+			          
+			        buffer.append(decodeUnicode(json.optJSONObject("data").getString("county")));//地区  
+			          
+			        buffer.append(decodeUnicode(json.optJSONObject("data").getString("isp")));//ISP公司  
+			          
+			        System.out.println(buffer.toString());  
+			          
+			        return buffer.toString();  
+			          
+			    }else{  
+			          
+			        return "获取地址失败!";  
+			          
+			    }  
+			      
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}  
           
         return null;  
           
@@ -253,7 +257,7 @@ public class AddressUtil {
     
     public static void main(String[] args) {
     	AddressUtil addressUtils = new AddressUtil();  
-        String ip = "118.213.176.78";  
+        String ip = "110.80.41.146";  
         String address = "";  
           
         try {  

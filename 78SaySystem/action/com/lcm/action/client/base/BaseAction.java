@@ -32,7 +32,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	 */
 	private static final long serialVersionUID = 562817839086704332L;
 	protected Integer page = 1;
-	protected Integer pageSize = 10;
+	protected Integer pageSize = 5;
 	protected T entity;
 	protected PageBean<T> pageBean;
 	protected PageBean<Chapter> chapterPageBean;
