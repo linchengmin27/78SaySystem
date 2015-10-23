@@ -25,6 +25,10 @@
 <script type="text/javascript" src="${ctx}/plugins/parallax-slider/js/modernizr.js"></script>
 <script type="text/javascript" src="${ctx}/plugins/parallax-slider/js/jquery.cslider.js"></script> 
 <script type="text/javascript" src="${ctx}/plugins/back-to-top.js"></script>
+
+<script type="text/javascript" src="${ctx}/js/jquery.validate.min.js"></script>
+<script type="text/javascript" src="${ctx}/js/jquery.form.min.js"></script>
+
 <!-- JS Page Level -->           
 <script type="text/javascript" src="${ctx}/js/app.js"></script>
 <script type="text/javascript" src="${ctx}/js/pages/index.js"></script>
@@ -35,4 +39,13 @@
         Index.initParallaxSlider();
         
     });
+    
+    function search(keyword) {
+    	if($.trim(keyword) == '') {
+    		alert("请输入您要搜索的关键字");
+    		return false;
+    	}
+		var url = basePath + '/search.action?key=' + keyword;
+		window.location.href = url;
+	}
 </script>

@@ -32,24 +32,29 @@
 				<div class="headline"><h3>头条</h3></div>
 				<div id="myCarousel" class="carousel slide">
 	                <div class="carousel-inner">
-	                  <div class="item active">
-	                    <img src="${ctx}/images/carousel/5.jpg" alt="" />
+	                  <c:forEach items="${headlinesArticles}" var="art" varStatus="st">
+	                  <div class="item <c:if test="${st.index eq 1}">active</c:if>">
+	                    <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 234px;width: 100%;max-width: 370px;" />
 	                    <div class="carousel-caption">
-	                      <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
+	                      <p>
+	                      	 <c:choose>
+			             	<c:when test="${art.category.parent.id eq 1}">
+				             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             	</c:when>
+			             	<c:when test="${art.category.parent.id eq 14}">
+			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             	</c:when>
+			             	<c:when test="${art.category.parent.id eq 21}">
+			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             	</c:when>
+			             	<c:when test="${art.category.parent.id eq 29}">
+			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             	</c:when>
+			             	</c:choose>
+	                      </p>
 	                    </div>
 	                  </div>
-	                  <div class="item">
-	                    <img src="${ctx}/images/carousel/4.jpg" alt="" />
-	                    <div class="carousel-caption">
-	                      <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
-	                    </div>
-	                  </div>
-	                  <div class="item">
-	                    <img src="${ctx}/images/carousel/3.jpg" alt="" />
-	                    <div class="carousel-caption">
-	                      <p>Cras justo odio, dapibus ac facilisis in, egestas.</p>
-	                    </div>
-	                  </div>
+	                  </c:forEach>
 	                </div>
 	                
 	                <div class="carousel-arrow">
@@ -66,32 +71,70 @@
 				<div id="testimonal_carousel" class="carousel slide">
 				  <!-- Carousel items -->
 				  <div class="carousel-inner">
-				    <div class="active item">
+				  	<c:forEach items="${lastestArticles}" var="art" varStatus="st">
+				    <div class="<c:if test="${st.index eq 1}">active</c:if> item">
 				    	<div class="testimonial">
-					    	<div class="testimonial-body">
-					    		<p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>
-					       		<p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p>	
+					    	<div class="testimonial-body" style="line-height: 25px;">
+					    		${art.content}
 					       	</div>
 					    	<div class="testimonial-author">
 					    		<span class="arrow"></span>
-					    		<span class="name">John Smith</span>, CEO, Pixel Ltd. 
+					    		<span class="name">
+			                    	<c:choose>
+					             	<c:when test="${art.category.parent.id eq 1}">
+						             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+				                    		<c:choose>
+				                    		<c:when test="${fn:length(art.title) <= 12}">
+				                    		${art.title}
+				                    		</c:when>
+				                    		<c:otherwise>
+				                    		${fn:substring(art.title, 0, 12)}..
+				                    		</c:otherwise>
+				                    		</c:choose>
+				                    	</a>
+					             	</c:when>
+					             	<c:when test="${art.category.parent.id eq 14}">
+					             		<a href="${ctx}/records/detail.action?id=${art.id}" title="${art.title}">
+				                    		<c:choose>
+				                    		<c:when test="${fn:length(art.title) <= 12}">
+				                    		${art.title}
+				                    		</c:when>
+				                    		<c:otherwise>
+				                    		${fn:substring(art.title, 0, 12)}..
+				                    		</c:otherwise>
+				                    		</c:choose>
+				                    	</a>
+					             	</c:when>
+					             	<c:when test="${art.category.parent.id eq 21}">
+					             		<a href="${ctx}/mystery/detail.action?id=${art.id}" title="${art.title}">
+				                    		<c:choose>
+				                    		<c:when test="${fn:length(art.title) <= 12}">
+				                    		${art.title}
+				                    		</c:when>
+				                    		<c:otherwise>
+				                    		${fn:substring(art.title, 0, 12)}..
+				                    		</c:otherwise>
+				                    		</c:choose>
+				                    	</a>
+					             	</c:when>
+					             	<c:when test="${art.category.parent.id eq 29}">
+					             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">
+				                    		<c:choose>
+				                    		<c:when test="${fn:length(art.title) <= 12}">
+				                    		${art.title}
+				                    		</c:when>
+				                    		<c:otherwise>
+				                    		${fn:substring(art.title, 0, 12)}..
+				                    		</c:otherwise>
+				                    		</c:choose>
+				                    	</a>
+					             	</c:when>
+					             	</c:choose>
+					    		</span> 
 					    	</div>
 					   	</div>
-				    </div><!--/carousel-inner-->
-	
-	                <!-- Item -->
-				    <div class="item">
-				    	<div class="testimonial">
-					    	<div class="testimonial-body">
-					    		<p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc.</p>	
-					    		<p>Vivamus imperdiet condimentum diam, eget placerat felis consectetur id. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper. Donec eget orci metus, ac adipiscing nunc. Pellentesque fermentum, ante ac interdum ullamcorper.</p>							       		
-					       	</div>
-					    	<div class="testimonial-author">
-					    		<span class="arrow"></span>
-					    		<span class="name">Lisa Cooper</span>, Art Director, Loop Inc.
-					    	</div>
-					   	</div>
-				    </div><!--/item-->
+				    </div>
+				    </c:forEach>
 				  </div><!--/testimonal_carousel-->
 	              
 	              <!-- Carousel nav -->						  
@@ -106,25 +149,48 @@
 	        <div class="span4">
                 <div class="posts">
                     <div class="headline"><h3>特别推荐</h3></div>
-                    <dl class="dl-horizontal">
-                        <dt><a href="#"><img src="${ctx}/images/sliders/elastislide/6.jpg" alt="" /></a></dt>
+                    <c:forEach items="${featuredArticles}" var="art">
+                    <dl class="dl-horizontal" >
+                        <dt style="width: 100px;"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 60px;width: 100%;max-width: 100px;" /></dt>
                         <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
+                            <p>
+                            	<c:choose>
+				             	<c:when test="${art.category.parent.id eq 1}">
+					             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+			                    		${art.title}
+			                    	</a>
+				             	</c:when>
+				             	<c:when test="${art.category.parent.id eq 14}">
+				             		<a href="${ctx}/records/detail.action?id=${art.id}" title="${art.title}">
+			                    		${art.title}
+			                    	</a>
+				             	</c:when>
+				             	<c:when test="${art.category.parent.id eq 21}">
+				             		<a href="${ctx}/mystery/detail.action?id=${art.id}" title="${art.title}">
+			                    		${art.title}
+			                    	</a>
+				             	</c:when>
+				             	<c:when test="${art.category.parent.id eq 29}">
+				             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">
+			                    		${art.title}
+			                    	</a>
+				             	</c:when>
+				             	</c:choose>
+                            </p> 
+                            <p>
+                            	<c:choose>
+	                    		<c:when test="${fn:length(art.abstract_) <= 30}">
+	                    		${art.abstract_}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.abstract_, 0, 30)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+                            </p>
+                            
                         </dd>
                     </dl>
-                    <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="${ctx}/images/sliders/elastislide/10.jpg" alt="" /></a></dt>
-                        <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-                        </dd>
-                    </dl>
-                    <dl class="dl-horizontal">
-                    <dt><a href="#"><img src="${ctx}/images/sliders/elastislide/11.jpg" alt="" /></a></dt>
-                        <dd>
-                            <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-                        </dd>
-                    </dl>
-                   
+                    </c:forEach>
                 </div>
 			</div>
 	        <!-- 特别推荐 E-->
@@ -133,225 +199,193 @@
 		<!-- 种类内容 S -->
 		<div class="row-fluid">
 	    	<!-- 世界之最 S -->
+	    	<c:if test="${category1Articles.size() > 0}">
 	        <div class="headline"><h3>世界之最</h3></div>
 	        <ul class="thumbnails">
+	        	<c:forEach items="${category1Articles}" var="art" begin="0" end="3">
 	            <li class="span3">
 	                <div class="thumbnail-style thumbnail-kenburn">
 	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/9.jpg" alt="" /></div>
+	                        <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
 	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
 	                    </div>
-	                    <h3><a href="#">Our Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
+	                    <h3>
+	                    	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+	                    		<c:choose>
+	                    		<c:when test="${fn:length(art.title) <= 10}">
+	                    		${art.title}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.title, 0, 10)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+	                    	</a>
+	                    </h3>
+	                    <p>
+	                    	<c:choose>
+                    		<c:when test="${fn:length(art.abstract_) <= 50}">
+                    		${art.abstract_}
+                    		</c:when>
+                    		<c:otherwise>
+                    		${fn:substring(art.abstract_, 0, 50)}..
+                    		</c:otherwise>
+                    		</c:choose>
+	                    </p>
 	                </div>
 	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/3.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">One More Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/4.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">Another Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style  thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/5.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">Huge Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
+	            </c:forEach>
 	        </ul>
 	        <ul class="thumbnails">
+	            <c:forEach items="${category1Articles}" var="art" begin="4" end="7">
 	            <li class="span3">
 	                <div class="thumbnail-style thumbnail-kenburn">
 	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/9.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
+	                        <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
+	                        <a class="btn-more hover-effect" href="${ctx}/records/detail.action?id=${art.id}">阅读更多 +</a>					
 	                    </div>
-	                    <h3><a href="#">Our Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
+	                    <h3>
+	                    	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+	                    		<c:choose>
+	                    		<c:when test="${fn:length(art.title) <= 10}">
+	                    		${art.title}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.title, 0, 10)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+	                    	</a>
+	                    </h3>
+	                    <p>
+	                    	<c:choose>
+                    		<c:when test="${fn:length(art.abstract_) <= 50}">
+                    		${art.abstract_}
+                    		</c:when>
+                    		<c:otherwise>
+                    		${fn:substring(art.abstract_, 0, 50)}..
+                    		</c:otherwise>
+                    		</c:choose>
+	                    </p>
 	                </div>
 	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/3.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">One More Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/4.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">Another Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style  thumbnail-kenburn">
-	                    <div class="thumbnail-img">
-	                        <div class="overflow-hidden"><img src="${ctx}/images/carousel/5.jpg" alt="" /></div>
-	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
-	                    </div>
-	                    <h3><a href="#">Huge Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                </div>
-	            </li>
+	            </c:forEach>
 	        </ul>
+	        </c:if>
 	        <!-- 世界之最 E -->
 	    
 	    	<!-- 吉尼斯纪录 S -->
+	    	<c:if test="${category14Articles.size() > 0}">
 	        <div class="headline"><h3>吉尼斯纪录</h3></div>
 	        <ul class="thumbnails">
+	            <c:forEach items="${category14Articles}" var="art">
 	            <li class="span3 thumbnail-style thumbnail-kenburn">
-	                <div class="overflow-hidden"><img src="${ctx}/images/carousel/7.jpg" alt="" /></div>
-	                <h3><a href="#">Our Work</a></h3>
-	                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                <p><a class="btn-u btn-u-small" href="#">阅读更多</a></p>
+	                <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
+	                <h3>
+	                	<a href="${ctx}/records/detail.action?id=${art.id}">
+	                		<c:choose>
+                    		<c:when test="${fn:length(art.title) <= 10}">
+                    		${art.title}
+                    		</c:when>
+                    		<c:otherwise>
+                    		${fn:substring(art.title, 0, 10)}..
+                    		</c:otherwise>
+                    		</c:choose>
+	                	</a>
+	                </h3>
+	                <p>
+	                	<c:choose>
+                   		<c:when test="${fn:length(art.abstract_) <= 50}">
+                   		${art.abstract_}
+                   		</c:when>
+                   		<c:otherwise>
+                   		${fn:substring(art.abstract_, 0, 50)}..
+                   		</c:otherwise>
+                   		</c:choose>
+	                </p>
+	                <p><a class="btn-u btn-u-small" href="${ctx}/records/detail.action?id=${art.id}">阅读更多</a></p>
 	            </li>
-	            <li class="span3 thumbnail-style thumbnail-kenburn">
-	                <div class="overflow-hidden"><img src="${ctx}/images/carousel/10.jpg" alt="" /></div>
-	                <h3><a href="#">Our Work</a></h3>
-	                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                <p><a class="btn-u btn-u-small" href="#">阅读更多</a></p>
-	            </li>
-	            <li class="span3 thumbnail-style thumbnail-kenburn">
-	                <div class="overflow-hidden"><img src="${ctx}/images/carousel/8.jpg" alt="" /></div>
-	                <h3><a href="#">Our Work</a></h3>
-	                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                <p><a class="btn-u btn-u-small" href="#">阅读更多</a></p>
-	            </li>
-	            <li class="span3 thumbnail-style thumbnail-kenburn">
-	                <div class="overflow-hidden"><img src="${ctx}/images/carousel/6.jpg" alt="" /></div>
-	                <h3><a href="#">Our Work</a></h3>
-	                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem.</p>
-	                <p><a class="btn-u btn-u-small" href="#">阅读更多</a></p>
-	            </li>
+	            </c:forEach>
 	        </ul>
+	        </c:if>
 	        <!-- 吉尼斯纪录 E -->
 	
 	    	<!-- 未解之谜 S -->
+	    	<c:if test="${category21Articles.size() > 0}">
 	        <div class="headline"><h3>未解之谜</h3></div>
 	        <ul class="thumbnails">
+	            <c:forEach items="${category21Articles}" var="art" begin="0" end="3">
 	            <li class="span3">
 	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #1" href="${ctx}/images/carousel/9.jpg">
+	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail.action?id=${art.id}">
 	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/9.jpg" alt="" />
+	                            <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/>
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
-	                    <h3><a href="#">Our Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
+	                    <h3>
+	                    	<a href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    		<c:choose>
+	                    		<c:when test="${fn:length(art.title) <= 10}">
+	                    		${art.title}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.title, 0, 10)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+	                    	</a>
+	                    </h3>
+	                    <p>
+	                    	<c:choose>
+	                   		<c:when test="${fn:length(art.abstract_) <= 50}">
+	                   		${art.abstract_}
+	                   		</c:when>
+	                   		<c:otherwise>
+	                   		${fn:substring(art.abstract_, 0, 50)}..
+	                   		</c:otherwise>
+	                   		</c:choose>
+	                    	<a class="read-more" href="${ctx}/mystery/detail.action?id=${art.id}">阅读更多</a>
+	                    </p>
 	                </div>
 	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #2" href="${ctx}/images/carousel/3.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/3.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">One More Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #3" href="${ctx}/images/carousel/2.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/2.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">Another Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #4" href="${ctx}/images/carousel/4.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/4.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">Huge Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
+	            </c:forEach>
 	        </ul>
 	        <ul class="thumbnails">
+	            <c:forEach items="${category21Articles}" var="art" begin="4" end="7">
 	            <li class="span3">
 	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #1" href="${ctx}/images/carousel/9.jpg">
+	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail.action?id=${art.id}">
 	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/9.jpg" alt="" />
+	                            <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/>
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
-	                    <h3><a href="#">Our Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
+	                    <h3>
+	                    	<a href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    		<c:choose>
+	                    		<c:when test="${fn:length(art.title) <= 10}">
+	                    		${art.title}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.title, 0, 10)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+	                    	</a>
+	                    </h3>
+	                    <p>
+	                    	<c:choose>
+	                   		<c:when test="${fn:length(art.abstract_) <= 50}">
+	                   		${art.abstract_}
+	                   		</c:when>
+	                   		<c:otherwise>
+	                   		${fn:substring(art.abstract_, 0, 50)}..
+	                   		</c:otherwise>
+	                   		</c:choose>
+	                    	<a class="read-more" href="${ctx}/mystery/detail.action?id=${art.id}">阅读更多</a>
+	                    </p>
 	                </div>
 	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #2" href="${ctx}/images/carousel/3.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/3.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">One More Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #3" href="${ctx}/images/carousel/2.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/2.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">Another Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
-	            <li class="span3">
-	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" data-rel="fancybox-button" title="Project #4" href="${ctx}/images/carousel/4.jpg">
-	                        <div class="overlay-zoom">	
-	                            <img src="${ctx}/images/carousel/4.jpg" alt="" />
-	                            <div class="zoom-icon"></div>					
-	                        </div>												
-	                    </a>
-	                    <h3><a href="#">Huge Work</a></h3>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, justo sit amet risus etiam porta sem. <a class="read-more" href="#">阅读更多</a></p>
-	                </div>
-	            </li>
+	            </c:forEach>
 	        </ul>
+	        </c:if>
 	        <!-- 未解之谜 E -->
 	
 	    	<!-- 天下奇葩 S -->

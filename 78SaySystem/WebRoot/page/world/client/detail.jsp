@@ -18,7 +18,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../../include/client/style.jsp" %>
-
+	
   </head>
   
   <body>
@@ -52,7 +52,7 @@
 	                        <i class="icon-tags"></i> 
 	                        <c:set value="${entity.tag.split(',')}" var="tags"></c:set>
 	                        <c:forEach items="${tags}" var="t">
-	                        <a href="#">${t}</a>&nbsp;&nbsp;
+	                        <a href="${ctx}/search.action?key=${t}">${t}</a>&nbsp;&nbsp;
 	                        </c:forEach>
 	                    </li>
 	                </ul>
@@ -67,66 +67,30 @@
 	
 				<hr />
 	
-	            <%@include file="../../user/client/comment_list.jsp" %>
-	
-	            <!-- Leave a Comment -->
-	            <div class="post-comment">
-	            	<h3 class="color-green">到此一游</h3>
-	                <form />
-	                    <textarea rows="5" class="span10"></textarea>
-	                    <p><button type="submit" class="btn-u">提&nbsp;&nbsp;&nbsp;&nbsp;交</button></p>
-	                </form>
-	            </div><!--/post-comment-->
+	            <div id="ajaxSearchId">
+	            
+	            </div>
 	        </div><!--/span9-->
 	
 	        <!-- Right Sidebar -->
 	    	<div class="span3">
 	        	<div class="posts">
 		            <div class="headline"><h3>相关推荐</h3></div>
-                	<dl class="dl-horizontal">
-	                    <dt><a href="#"><img src="${ctx}/images/sliders/elastislide/6.jpg" alt="" /></a></dt>
-	                    <dd>
-	                        <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-	                    </dd>
-	                </dl>
+	                <c:forEach items="${relateArticles}" var="article">
 	                <dl class="dl-horizontal">
-	               	 	<dt><a href="#"><img src="${ctx}/images/sliders/elastislide/10.jpg" alt="" /></a></dt>
+	                    <dt><a href="${ctx}/world/detail.action?id=${article.id}"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
 	                    <dd>
-	                        <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
+	                        <p><a href="${ctx}/world/detail.action?id=${article.id}">${article.title}</a></p> 
 	                    </dd>
 	                </dl>
-	                <dl class="dl-horizontal">
-	                	<dt><a href="#"><img src="${ctx}/images/sliders/elastislide/11.jpg" alt="" /></a></dt>
-	                    <dd>
-	                        <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-	                    </dd>
-	                </dl>
-	                <dl class="dl-horizontal">
-	                    <dt><a href="#"><img src="${ctx}/images/sliders/elastislide/6.jpg" alt="" /></a></dt>
-	                    <dd>
-	                        <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-	                    </dd>
-	                </dl>
-	                <dl class="dl-horizontal">
-	               	 	<dt><a href="#"><img src="${ctx}/images/sliders/elastislide/10.jpg" alt="" /></a></dt>
-	                    <dd>
-	                        <p><a href="#">Anim moon officia Unify is an incredibly beautiful responsive Bootstrap Template</a></p> 
-	                    </dd>
-	                </dl>
+	                </c:forEach>
                 </div>
 	
 	        	<div class="headline"><h3>标签</h3></div>
 	            <ul class="unstyled inline blog-tags">
-	            	<li><a href="#"><i class="icon-tags"></i> Business</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Music</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Internet</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Education</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> People</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Math</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Photos</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Electronics</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Apple</a></li>
-	            	<li><a href="#"><i class="icon-tags"></i> Canada</a></li>
+	            	<c:forEach items="${articleTags}" var="articleTag">
+	            	<li><a href="${ctx}/search.action?key=${articleTag.name}"><i class="icon-tags"></i>${articleTag.name}</a></li>
+	            	</c:forEach>
 	            </ul>
 	        </div><!--/span3-->
 	    </div><!--/row-fluid-->        
@@ -134,6 +98,82 @@
 	<!-- 内容 E -->
   	
     <%@include file="../../include/client/footer.jsp" %>
-    
+    <script type="text/javascript">
+	    jQuery(document).ready(function() {
+	        ajaxSearchComment(1);
+	    });
+	    
+	    function ajaxSearchComment(page) {
+	    	$("#ajaxSearchId").html("<img src='${ctx}/images/loading.gif'/>&nbsp;Loading...");
+			var url = "${ctx}/comment/list.action";
+			var data = {
+					page: page,
+					'article.id': '${entity.id}'
+				};
+			$.ajax({
+	            type: "post",
+	            data: data,
+	            url: url,
+	            dataType : 'text',
+	            timeout : 60000,
+	            success: function(result){
+	        		$('#ajaxSearchId').html(result);
+	        		addCommentValidation();
+	            },
+	            error: function(e) {
+					alert("系统异常，请稍后重试");
+				},
+	        });
+			
+	    }
+	    
+	    function addCommentValidation() {
+			var validate = $("#add_form").validate({
+				 errorPlacement: function(error, element) { 
+					 error.appendTo(element.parent());  
+					 element.parent().parent().addClass("has-error");
+					
+				 },
+				
+				 submitHandler: function(form){
+					 var url = "${ctx}/comment/add/done.action";
+					 var data = $(form).serialize();
+					 
+					 $.ajax({
+			            type: "post",
+			            data: data,
+			            url: url,
+			            dataType : 'text',
+			            timeout : 60000,
+			            success: function(result){
+			        		var res = eval("("+result+")");
+			        		if(res[0].respCode == 0) {
+			        			alert(res[0].respDesc);
+			        			ajaxSearch(1);
+			        		} else {
+			        			alert(res[0].respDesc);
+			        		}
+			            },
+			            error: function(e) {
+							alert("系统异常，请稍后重试");
+						},
+			        });
+				},
+				
+				rules: {
+					"content": {
+						required:true
+					}
+				 },
+				 
+				 messages:{
+					"content": {
+						required:'<span style="color:#d16e6c">请输入留笔内容!!!</span>'
+					}
+				 }
+			});	
+		
+		}
+	</script>
   </body>
 </html>

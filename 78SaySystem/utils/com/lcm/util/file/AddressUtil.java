@@ -51,7 +51,7 @@ public class AddressUtil {
 			          
 			    }else{  
 			          
-			        return "获取地址失败!";  
+			        return "匿名";  
 			          
 			    }  
 			      
@@ -60,7 +60,7 @@ public class AddressUtil {
 			e.printStackTrace();
 		}  
           
-        return null;  
+        return "匿名";  
           
     }  
     /** 

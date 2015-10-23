@@ -18,6 +18,14 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../include/client/style.jsp" %>
+	
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var key = '${key}';
+		var url = basePath + '/search.action?key=' + key + '&page=' + page;
+		window.location.href = url;
+	}
+	</script>
 </head> 
 
 <body>
@@ -28,7 +36,7 @@
 		<div class="container">
 	        <h1 class="pull-left">搜索结果</h1>
 	        <ul class="pull-right breadcrumb">
-	            <li><a href="${ctx}/page/index/index.jsp">首页</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
 	            <li class="active">搜索</li>
 	        </ul>
 	    </div><!--/container-->
@@ -39,110 +47,309 @@
 	<div class="container">		
 	    <!-- Search Result -->
 	    <div class="row-fluid search-page">
-	        <h3>找到116 匹配信息..</h3>
+	        <h3>找到${allRow}匹配信息..</h3>
 	
 	        <div class="alert alert-info alert-block">
 	            <button data-dismiss="alert" class="close" type="button">×</button>
-	            <h4>Info!</h4>
-	            At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.
+	            <h4>友情提示!</h4>
+	            当前版本系统的搜索为全文性索引，支持搜索全站性文章的标题、关键性标签，暂不支持分词，请勿一次性搜索多个关键字，我们将在后续的版本中进行优化，最后感谢您光临78Say奇葩说网站，我们将继续为您提供更多、更好、更奇葩的文章，供您阅读！！！
 	        </div>        
 	
-	        <p class="margin-bottom-20">Et harum quidem rerum facilis est et expedita distinctio lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero consectetur adipiscing elit magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat. Pellentesque viverra vehicula sem ut volutpat. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus. Fusce condimentum eleifend enim a feugiat.</p>
-	
-	        <div class="row-fluid">
+			<div class="row-fluid">
+			<c:forEach items="${pageBean.list}" var="art" begin="0" end="1" varStatus="st">
+	          <c:if test="${st.index eq 0}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img1.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">阿根廷摄影师一张胶片环拍北京二环 创吉尼斯纪录</a></h2>
-	                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum. <a href="#">read more</a></p>
+	             	<c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
+	          </c:if>
+	          <c:if test="${st.index eq 1}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img6.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>Lorem ipsum dolor sit eos et accusamus et iusto odio amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus usce condimentum eleifend enim a sunt in culpa qui officia feugiat. Pellentesque dolores et quas molestias viverra vehicula sem ut volutpat. Integer sed arcu. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
-	        </div>
-	        <div class="row-fluid">
+	          </c:if>
+	       </c:forEach>
+	       </div>
+	       
+	       <div class="row-fluid">
+			<c:forEach items="${pageBean.list}" var="art" begin="2" end="3" varStatus="st">
+	          <c:if test="${st.index eq 2}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img2.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
+	          </c:if>
+	          <c:if test="${st.index eq 3}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img7.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>Lorem ipsum dolor sit eos et accusamus et iusto odio amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus usce condimentum eleifend enim a sunt in culpa qui officia feugiat. Pellentesque dolores et quas molestias viverra vehicula sem ut volutpat. Integer sed arcu. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
-	        </div>
-	        <div class="row-fluid">
+	          </c:if>
+	       </c:forEach>
+	       </div>
+	       
+	       <div class="row-fluid">
+			<c:forEach items="${pageBean.list}" var="art" begin="4" end="5" varStatus="st">
+	          <c:if test="${st.index eq 4}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img3.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
+	          </c:if>
+	          <c:if test="${st.index eq 5}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img8.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>Lorem ipsum dolor sit eos et accusamus et iusto odio amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus usce condimentum eleifend enim a sunt in culpa qui officia feugiat. Pellentesque dolores et quas molestias viverra vehicula sem ut volutpat. Integer sed arcu. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
-	        </div>
-	        <div class="row-fluid margin-bottom-20">
+	          </c:if>
+	       </c:forEach>
+	       </div>
+	       
+	       <div class="row-fluid">
+			<c:forEach items="${pageBean.list}" var="art" begin="6" end="7" varStatus="st">
+	          <c:if test="${st.index eq 6}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img4.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
+	          </c:if>
+	          <c:if test="${st.index eq 7}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/images/new/img9.jpg" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" />
 	             </div>
 	             <div style="display: inline;">
-	                <h2><a href="#">Here Any Title</a></h2>
-	                <p>Lorem ipsum dolor sit eos et accusamus et iusto odio amet, consectetur adipiscing elit. Ut non libero magna. Sed et quam lacus usce condimentum eleifend enim a sunt in culpa qui officia feugiat. Pellentesque dolores et quas molestias viverra vehicula sem ut volutpat. Integer sed arcu. <a href="#">read more</a></p>
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
 	             </div>
 	          </div>
-	        </div>
-	        <div class="pagination pagination-centered">
-	            <ul>
-	              <li><a href="#">上一页</a></li>
-	              <li><a href="#">1</a></li>
-	              <li><a href="#">2</a></li>
-	              <li class="active"><a href="#">3</a></li>
-	              <li><a href="#">4</a></li>
-	              <li><a href="#">5</a></li>
-	              <li><a href="#">6</a></li>
-	              <li><a href="#">7</a></li>
-	              <li><a href="#">8</a></li>
-	              <li><a href="#">下一页</a></li>
-	            </ul>
-	        </div>       
+	          </c:if>
+	       </c:forEach>
+	       </div>
+	       
+	       <div class="row-fluid">
+			<c:forEach items="${pageBean.list}" var="art" begin="8" end="9" varStatus="st">
+	          <c:if test="${st.index eq 8}">
+	          <div class="span6 booking-blocks">
+	             <div class="pull-left booking-img">
+	                <img src="${ctx}/${art.logo}" alt="" />
+	             </div>
+	             <div style="display: inline;">
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
+	             </div>
+	          </div>
+	          </c:if>
+	          <c:if test="${st.index eq 9}">
+	          <div class="span6 booking-blocks">
+	             <div class="pull-left booking-img">
+	                <img src="${ctx}/${art.logo}" alt="" />
+	             </div>
+	             <div style="display: inline;">
+	                <c:choose>
+	             	<c:when test="${art.category.parent.id eq 1}">
+	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 14}">
+	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 21}">
+	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	<c:when test="${art.category.parent.id eq 29}">
+	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">read more</a></p>
+	             	</c:when>
+	             	</c:choose>
+	             </div>
+	          </div>
+	          </c:if>
+	       </c:forEach>
+	       </div>
+	       <%@include file="../include/client/ajax_pager.jsp" %>
 	    </div><!--/row-fluid-->
 	    <!-- //End Search Result -->
 	</div><!--/container-->		

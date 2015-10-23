@@ -11,6 +11,7 @@ import com.lcm.entity.base.EntityParamType;
 import com.lcm.entity.business.Article;
 import com.lcm.entity.business.Category;
 import com.lcm.entity.business.Chapter;
+import com.lcm.entity.system.Tag;
 import com.lcm.service.base.BaseService;
 import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.StringUtil;
@@ -76,15 +77,85 @@ public class ArticleService extends BaseService implements IArticleService {
 	public List<Article> getArticleList(Long categoryId, Integer page, 
 			Integer pageSize, String orderBy) {
 		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
-		String hql = "from Article where isDelete=:isDelete and (category.id=:categoryId or category.parent.id=:categoryId)";
+		String hql = "from Article where isDelete=:isDelete";
 		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
-		paramMap.put("categoryId", categoryId);
+		
+		if(!StringUtil.isEmpty(categoryId)) {
+			hql += " and (category.id=:categoryId or category.parent.id=:categoryId)";
+			paramMap.put("categoryId", categoryId);
+		}
 		
 		if(!StringUtil.isEmpty(orderBy)) {
 			hql += " order by " + orderBy;
 		}
 		
 		return dao.getEntities(hql, paramMap, page, pageSize);
+	}
+	
+	/**
+	 * 获取相关的文章
+	 * */
+	public List<Article> getArticleList(Article article) {
+		String sql = "SELECT * FROM Article WHERE categoryId=? and id<>? order by rand() LIMIT 5";
+		return dao.getEntities(Article.class, sql, new Object[]{article.getCategory().getId(), article.getId()});
+	}
+	
+	/**
+	 * 根据关键字获取相关的文章个数
+	 * */
+	public long countArticle(String key) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "select count(*) from Article where isDelete=:isDelete and (title like :key or tag like :key) order by createTime desc";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("key", addLikeChar(key));
+		
+		return dao.getAllRow(hql, paramMap);
+	}
+	
+	/**
+	 * 根据关键字获取文章信息
+	 * */
+	public List<Article> getArticleList(String key, Integer page, Integer pageSize) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Article where isDelete=:isDelete and (title like :key or tag like :key) order by createTime desc";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("key", addLikeChar(key));
+		
+		return dao.getEntities(hql, paramMap, page, pageSize);
+	}
+	
+	/**
+	 * 获取放置首页的文章信息
+	 * */
+	public List<Article> getIsPlacedHomeArticleList(Long categoryId) {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Article where isDelete=:isDelete and isPlacedHome=:isPlacedHome and category.parent.id=:categoryId order by createTime desc";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("isPlacedHome", EntityParamType.IsPlacedHome.YES);
+		paramMap.put("categoryId", categoryId);
+		return dao.getEntities(hql, paramMap, 1, 4);
+	}
+	
+	/**
+	 * 获取头条的文章信息
+	 * */
+	public List<Article> getIsHeadlinesArticleList() {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Article where isDelete=:isDelete and isHeadlines=:isHeadlines order by createTime desc";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("isHeadlines", EntityParamType.IsHeadlines.YES);
+		return dao.getEntities(hql, paramMap, 1, 3);
+	}
+	
+	/**
+	 * 获取特别推荐的文章信息
+	 * */
+	public List<Article> getiIsFeaturedArticleList() {
+		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
+		String hql = "from Article where isDelete=:isDelete and isFeatured=:isFeatured order by createTime desc";
+		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
+		paramMap.put("isFeatured", EntityParamType.IsFeatured.YES);
+		return dao.getEntities(hql, paramMap, 1, 3);
 	}
 	
 	/**
@@ -133,5 +204,13 @@ public class ArticleService extends BaseService implements IArticleService {
 		
 		List<Chapter> list = dao.getEntities(hql, paramMap);
 		return selectOne(list);
+	}
+	
+	/**
+	 * 获取标签列表
+	 * */
+	public List<Tag> getTagList() {
+		String sql = "SELECT * FROM Tag order by rand() LIMIT 12";
+		return dao.getEntities(Tag.class, sql, new Object[]{});
 	}
 }

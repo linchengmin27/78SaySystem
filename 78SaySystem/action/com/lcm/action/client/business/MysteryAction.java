@@ -59,6 +59,9 @@ public class MysteryAction extends BaseAction<Article> {
 		
 		List<Chapter> list = articleService.getArticleChapterList(entity.getId(), -1, 1);
 		chapterPageBean = new PageBean<Chapter>(list, list.size(), page, 1);
+		
+		setAttrToRequest("relateArticles", articleService.getArticleList(entity));
+		setAttrToRequest("articleTags", articleService.getTagList());
 		return SUCCESS;
 	}
 

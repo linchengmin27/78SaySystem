@@ -113,7 +113,7 @@
 	<!-- 配置式来定义事物 -->
 	<aop:config proxy-target-class="true">
 		<aop:pointcut id="pointcut"
-			expression="execution(* com.lcm.service.*.impl.*(..))" />
+			expression="execution(* com.lcm.service.*.impl.*.*(..))" />
 		<aop:advisor pointcut-ref="pointcut" advice-ref="txAdvice" />
 	</aop:config>
 	

@@ -29,4 +29,5 @@ public class IndexBean {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
+
 }

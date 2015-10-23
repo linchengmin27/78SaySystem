@@ -78,10 +78,8 @@
                     </ul>
                     <div class="search-open">
                         <div class="input-append">
-                            <form action="${ctx}/page/index/search.jsp" method="post"/>
-                                <input type="text" class="span3" placeholder="请输入您要搜索的关键字" />
-                                <button type="submit" class="btn-u">Go</button>
-                            </form>
+                            <input id="search_key" type="text" class="span3" placeholder="请输入您要搜索的关键字" />
+                            <button type="submit" class="btn-u" onclick="search($('#search_key').val());">Go</button>
                         </div>
                     </div>
                 </div><!-- /nav-collapse -->                                
