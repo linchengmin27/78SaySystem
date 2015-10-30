@@ -62,6 +62,7 @@ public class MysteryAction extends BaseAction<Article> {
 		
 		setAttrToRequest("relateArticles", articleService.getArticleList(entity));
 		setAttrToRequest("articleTags", articleService.getTagList());
+		articleService.updateArticleViews(entity.getId());
 		return SUCCESS;
 	}
 

@@ -1,15 +1,12 @@
 package com.lcm.action.client.business;
 
-import java.io.File;
 import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import com.lcm.action.client.base.BaseAction;
-import com.lcm.entity.business.Article;
 import com.lcm.entity.business.Comment;
 import com.lcm.service.business.IUserService;
 import com.lcm.util.file.AddressUtil;
@@ -48,6 +45,9 @@ public class CommentAction extends BaseAction<Comment> {
 		entity.setName(new AddressUtil().getAddress("ip="+ip, "utf-8"));
 		entity.setLogo(getCommentLogo());
 		Map<Boolean, String> resultMap = userService.addComment(entity); 
+		if(resultMap.containsKey(true)) {
+			articleService.updateArticleReviews(entity.getArticle().getId());
+		}
 		JsonUtil.handleJSON(JsonUtil.getJsonContent(resultMap));
 		return NONE;
 	}

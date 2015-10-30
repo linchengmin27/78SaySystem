@@ -149,7 +149,7 @@
 			        		var res = eval("("+result+")");
 			        		if(res[0].respCode == 0) {
 			        			alert(res[0].respDesc);
-			        			ajaxSearch(1);
+			        			ajaxSearchComment(1);
 			        		} else {
 			        			alert(res[0].respDesc);
 			        		}

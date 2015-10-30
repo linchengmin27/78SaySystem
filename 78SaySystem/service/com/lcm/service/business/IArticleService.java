@@ -82,4 +82,15 @@ public interface IArticleService {
 	 * 获取标签列表
 	 * */
 	public List<Tag> getTagList();
+	
+	
+	/**
+	 * 更新指定的文件的浏览数
+	 * */
+	public void updateArticleViews(Long id);
+	
+	/**
+	 * 更新指定的文件的评论数
+	 * */
+	public void updateArticleReviews(Long id);
 }

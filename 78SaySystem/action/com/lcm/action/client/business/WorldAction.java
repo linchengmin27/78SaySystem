@@ -59,6 +59,7 @@ public class WorldAction extends BaseAction<Article> {
 		
 		setAttrToRequest("relateArticles", articleService.getArticleList(entity));
 		setAttrToRequest("articleTags", articleService.getTagList());
+		articleService.updateArticleViews(entity.getId());
 		return SUCCESS;
 	}
 
@@ -78,4 +79,11 @@ public class WorldAction extends BaseAction<Article> {
 		return chapter;
 	}
 
+	public void setChapterId(Long chapterId) {
+		this.chapterId = chapterId;
+	}
+
+	public Long getChapterId() {
+		return chapterId;
+	}
 }

@@ -151,7 +151,7 @@
                     <div class="headline"><h3>特别推荐</h3></div>
                     <c:forEach items="${featuredArticles}" var="art">
                     <dl class="dl-horizontal" >
-                        <dt style="width: 100px;"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 60px;width: 100%;max-width: 100px;" /></dt>
+                        <dt style="width: 100px;padding-right: 10px;"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 56px;width: 100%;max-width: 56px;" /></dt>
                         <dd>
                             <p>
                             	<c:choose>

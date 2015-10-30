@@ -51,7 +51,7 @@ public class AddressUtil {
 			          
 			    }else{  
 			          
-			        return "匿名";  
+			        return "匿名网友";  
 			          
 			    }  
 			      
@@ -60,7 +60,7 @@ public class AddressUtil {
 			e.printStackTrace();
 		}  
           
-        return "匿名";  
+        return "匿名网友";  
           
     }  
     /** 

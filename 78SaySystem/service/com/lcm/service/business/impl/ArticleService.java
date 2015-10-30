@@ -213,4 +213,22 @@ public class ArticleService extends BaseService implements IArticleService {
 		String sql = "SELECT * FROM Tag order by rand() LIMIT 12";
 		return dao.getEntities(Tag.class, sql, new Object[]{});
 	}
+	
+	/**
+	 * 更新指定的文件的浏览数
+	 * */
+	public void updateArticleViews(Long id) {
+		Article article = getArticleDetail(id);
+		article.setViews(article.getViews() + 1);
+		dao.updateEntity(article);
+	}
+	
+	/**
+	 * 更新指定的文件的评论数
+	 * */
+	public void updateArticleReviews(Long id) {
+		Article article = getArticleDetail(id);
+		article.setReviews(article.getReviews() + 1);
+		dao.updateEntity(article);
+	}
 }

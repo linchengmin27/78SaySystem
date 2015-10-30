@@ -40,7 +40,7 @@ public class IndexAction extends BaseAction<Article> {
 	public String search() {
 		try {
 			pageSize = 10;
-//			key = new String(key.getBytes("ISO-8859-1"),"UTF-8");
+			key = new String(key.getBytes("ISO-8859-1"),"UTF-8");
 			long allRow = articleService.countArticle(key);
 			List<Article> list = articleService.getArticleList(key, page, pageSize);
 			pageBean = new PageBean<Article>(list, allRow, page, pageSize);
