@@ -1,6 +1,14 @@
 package com.lcm.entity.base;
 
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.lcm.entity.business.Category;
+
 public class EntityParamType {
+	public static Map<Category, List<Category>> categoryMap = new LinkedHashMap<Category, List<Category>>();
+	
 	public static class ListType { //列表显示类型
 		public static final int WORLD = 1;
 		public static final int RECORDS = 2;

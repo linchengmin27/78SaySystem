@@ -18,7 +18,12 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../../include/client/style.jsp" %>
-
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var url = basePath + '/wonder/news/index.action?page=' + page;
+		window.location.href = url;
+	}
+	</script>
   </head>
   
   <body>
@@ -55,7 +60,7 @@
 	                	<%--<img src="${ctx}/images/clients/cisco.png" class="img-colorful" alt="" />--%>
 					</a>                        
 	                <div style="display: inline;">
-	                	<h3><a class="linked color-green" href="${ctx}/records/detail.action?id=${article.id}">${article.title}</a></h3>
+	                	<h3><a class="linked color-green" href="${ctx}/worder/detail.action?id=${article.id}">${article.title}</a></h3>
 	                	<p>${article.content}</p>
 	                </div>
 	            </div>

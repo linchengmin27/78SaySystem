@@ -40,9 +40,10 @@ public class WonderAction extends BaseAction<Article>  {
 	@Action(value = "/wonder/picture/index", results = {@Result(name = "success", location = PATH + "/picture_index.jsp") })  
 	public String pictureIndex() {
 		entity.setCategory(articleService.getCategoryDetail(31L));
-		long allRow = articleService.countArticle(30L);
+		long allRow = articleService.countArticle(31L);
 		List<Article> list = articleService.getArticleList(31L, page, pageSize, " createTime desc");
 		pageBean = new PageBean<Article>(list, allRow, page, pageSize);
+		
 		return SUCCESS;
 	}
 	

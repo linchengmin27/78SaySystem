@@ -18,7 +18,14 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../../include/client/style.jsp" %>
+	<link rel="stylesheet" href="${ctx}/plugins/portfolioSorting/css/sorting.css" /> 
 
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var url = basePath + '/wonder/picture/index.action?page=' + page;
+		window.location.href = url;
+	}
+	</script>
   </head>
   
   <body>
@@ -29,118 +36,42 @@
 		<div class="container">
 			<h1 class="color-green pull-left">奇葩天下 </h1>
 	        <ul class="pull-right breadcrumb">
-	            <li><a href="index.html">首页</a> <span class="divider">/</span></li>
-	            <li>奇葩天下 <span class="divider">/</span></li>
-	            <li class="active">奇葩图片</li>
+	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
+	            <li>
+	            	<a>奇葩天下 </a>
+	            	<c:if test="${categoryId ne 30}">
+	            	<span class="divider">/</span>
+	            	</c:if>
+	            </li>
+	            <c:if test="${categoryId ne 30}">
+	            <li class="active">${category.name}</li>
+	            </c:if>
 	        </ul>
 	    </div><!--/container-->
 	</div>
 	<!-- 面包屑导航 E -->
   	
   	<!-- 内容 S -->
-  	<div class="container portfolio-columns portfolio-responsive"> 	
+  	<div class="container"> 	
 		<div class="row-fluid"> 
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/1.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item1</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/2.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item2</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/3.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item3</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/4.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item4</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
+	        <div id="w">    
+	            <ul class="portfolio recent-work clearfix"> 
+	            	<c:forEach items="${pageBean.list}" var="article" varStatus="st">
+	                <li data-id="id-${st.index + 1}" class="web" title="${article.title}">
+	                    <a href="${ctx}/mystery/detail.action?id=${article.id}">
+	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 100%;max-width: 270px;"/></em>
+	                        <span>
+	                            <strong>${article.title}</strong>
+	                            <i style="font-style:normal">日期：${article.displayFullTime}</i>
+	                        </span>
+	                    </a>
+	                </li>
+	                </c:forEach>
+	            </ul>
+	        </div>   
+	        <%@include file="../../include/client/ajax_pager.jsp" %>  
+        	<%@include file="../../include/client/link.jsp" %>                  
 	    </div><!--/row-fluid-->         
-		<div class="row-fluid"> 
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/5.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item1</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/6.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item2</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/7.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item3</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/8.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item4</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	    </div><!--/row-fluid-->         
-		<div class="row-fluid"> 
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/9.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item1</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/10.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item2</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/3.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item3</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	        <div class="view view-tenth span3">
-	        	<img src="${ctx}/images/carousel/4.jpg" alt="" />
-	            <div class="mask">
-	                <h2>Portfolio Item4</h2>
-	                <a href="portfolio_item.html" class="info">阅读更多</a>
-	            </div>
-	        </div>
-	    </div><!--/row-fluid-->         
-	    
-	    <div class="pagination pagination-centered">
-             <ul>
-                 <li><a href="#">上一页</a></li>
-                 <li><a href="#">1</a></li>
-                 <li><a href="#">2</a></li>
-                 <li><a href="#">3</a></li>
-                 <li><a href="#">4</a></li>
-                 <li><a href="#">下一页</a></li>
-             </ul>
-        </div>  
-        <%@include file="../../include/client/link.jsp" %>  
 	</div>
 	<!-- 内容 E -->
   	

@@ -6,16 +6,12 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
-
-import com.lcm.entity.business.Category;
+import com.lcm.entity.base.EntityParamType;
 import com.lcm.entity.business.Chapter;
 import com.lcm.service.business.IArticleService;
 import com.lcm.util.file.FileUploadUtil;
@@ -51,13 +47,7 @@ public class BaseAction<T> extends ActionSupport implements ModelDriven<T> {
 	protected IArticleService articleService;
 	
 	protected void init() {
-		Map<Category, List<Category>> categoryMap = new LinkedHashMap<Category, List<Category>>();
-		List<Category> parents = articleService.getParentCategoryList();
-		for (Category parant: parents) {
-			List<Category> children = articleService.getChilrenCategoryList(parant.getId());
-			categoryMap.put(parant, children);
-		}
-		setAttrToSession("categoryMap", categoryMap);
+		setAttrToSession("categoryMap", EntityParamType.categoryMap);
 	}
 	
 	/**
