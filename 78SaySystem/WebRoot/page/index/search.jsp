@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@include file="../include/client/import.jsp" %>
 
 <!DOCTYPE html>
@@ -22,7 +22,7 @@
 	<script type="text/javascript">
 	function ajaxSearch(page) {
 		var key = '${key}';
-		var url = basePath + '/search.action?key=' + key + '&page=' + page;
+		var url = basePath + '/search.html?key=' + key + '&page=' + page;
 		window.location.href = url;
 	}
 	</script>
@@ -36,7 +36,7 @@
 		<div class="container">
 	        <h1 class="pull-left">搜索结果</h1>
 	        <ul class="pull-right breadcrumb">
-	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li class="active">搜索</li>
 	        </ul>
 	    </div><!--/container-->

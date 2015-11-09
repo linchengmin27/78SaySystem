@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@include file="import.jsp" %>
 
 <!-- 样式切换 S -->
@@ -52,7 +52,7 @@
                 <div class="nav-collapse collapse">                                     
                     <ul class="nav top-2">
                         <li class="active">
-                            <a href="${ctx}/index.action" class="dropdown-toggle">首页</a>
+                            <a href="${ctx}/index.html" class="dropdown-toggle">首页</a>
                             <b class="caret-out"></b>                        
                         </li>
                         

@@ -1,6 +1,9 @@
 package com.lcm.action.client.business;
 
+import java.net.URLDecoder;
 import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -40,7 +43,12 @@ public class IndexAction extends BaseAction<Article> {
 	public String search() {
 		try {
 			pageSize = 10;
-			key = new String(key.getBytes("ISO-8859-1"),"UTF-8");
+			ServletActionContext.getRequest().setCharacterEncoding("GBK");
+			System.out.println("===========" + key);
+			key = new String(key.getBytes("ISO-8859-1"),"GBK");
+			System.out.println("===========" + key);
+			key = new String(URLDecoder.decode(key,"GBK"));
+			System.out.println("===========" + key);
 			long allRow = articleService.countArticle(key);
 			List<Article> list = articleService.getArticleList(key, page, pageSize);
 			pageBean = new PageBean<Article>(list, allRow, page, pageSize);

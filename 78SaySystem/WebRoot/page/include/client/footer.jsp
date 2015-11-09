@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <!-- 底部版权 S -->
 <div class="copyright">
@@ -6,7 +6,7 @@
 		<div class="row-fluid">
 			<div class="span8">
 				<p></p>						
-	            <p>网站声明：本站所收录所有信息都来自于网上资源，仅供阅读，如有侵权，麻烦联系<a href="${ctx}/page/contactus/index.jsp">联系我们</a>。</p>
+	            <p>网站声明：本站所收录所有信息都来自于网上资源，仅供阅读，如有侵权，麻烦联系<a href="mailto:454939864@qq.com">联系我们</a>。</p>
 			</div>
 			<div class="span4">	
 				<a href="${ctx}/page/index/index.jsp"><img id="logo-footer" src="${ctx}/images/logo.png" class="pull-right" alt="" /></a>
@@ -45,7 +45,7 @@
     		alert("请输入您要搜索的关键字");
     		return false;
     	}
-		var url = basePath + '/search.action?key=' + keyword;
+		var url = basePath + '/search/' + keyword + '.html';
 		window.location.href = url;
 	}
 </script>

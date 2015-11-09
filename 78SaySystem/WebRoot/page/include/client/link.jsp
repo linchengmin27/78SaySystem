@@ -1,5 +1,5 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<div id="clients-flexslider" class="flexslider home clients">
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%--<div id="clients-flexslider" class="flexslider home clients">
     <div class="headline"><h3>友情链接</h3></div>    
     <ul class="slides">
         <li>
@@ -105,4 +105,4 @@
             </a>
         </li>
     </ul>
-</div>
+</div>--%>

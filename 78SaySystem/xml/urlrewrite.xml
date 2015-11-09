@@ -35,87 +35,10 @@
 	</rule>
 	
 	<rule>
-		<note>小说榜单</note>
-		<from>^/rank/index.html$</from>
-		<to>/rank/index.action</to>
+		<note>网站搜索</note>
+		<from>^/search/(.*).html$</from>
+		<to>/search.action?key=$1</to>
 	</rule>
-	
-	<rule>
-		<note>小说榜单-最新入库人气榜</note>
-		<from>^/rank/new/list.html$</from>
-		<to>/rank/new/list.action</to>
-	</rule>
-	
-	<rule>
-		<note>小说榜单-总字数榜</note>
-		<from>^/rank/count/list.html$</from>
-		<to>/rank/count/list.action</to>
-	</rule>
-	
-	<rule>
-		<note>小说榜单-类型小说排行榜</note>
-		<from>^/rank/type/list.html$</from>
-		<to>/rank/type/list.action</to>
-	</rule>
-	
-	<rule>
-		<note>小说宝库</note>
-		<from>^/store/index.html$</from>
-		<to>/store/index.action</to>
-	</rule>
-	
-	<rule>
-		<note>小说宝库-按类型</note>
-		<from>^/store/([0-9]\d*+)/index.html$</from>
-		<to>/store/index.action?categoryId=$1</to>
-	</rule>
-	
-	<rule>
-		<note>小说介绍</note>
-		<from>^/book/([0-9]\d*+)/index.html$</from>
-		<to>/book/index.action?id=$1</to>
-	</rule>
-	
-	<rule>
-		<note>小说目录</note>
-		<from>^/book/([0-9]\d*+)/chapter/index.html$</from>
-		<to>/book/chapter.action?id=$1</to>
-	</rule>
-	
-	<rule>
-		<note>小说阅读</note>
-		<from>^/book/detail/([0-9]\d*+).html$</from>
-		<to>/book/detail.action?id=$1</to>
-	</rule>
-	
-	<rule>
-		<note>小说立即阅读</note>
-		<from>^/book/read/([0-9]\d*+).html$</from>
-		<to>/book/read.action?id=$1</to>
-	</rule>
-	
-	<rule>
-		<note>上一章节</note>
-		<from>^/book/pre/([0-9]\d*+)/([0-9]\d*+).html$</from>
-		<to>/book/pre/detail?id=$1&amp;chapter=$2</to>
-	</rule>
-	
-	<rule>
-		<note>下一章节</note>
-		<from>^/book/next/([0-9]\d*+)/([0-9]\d*+).html$</from>
-		<to>/book/next/detail?id=$1&amp;chapter=$2</to>
-	</rule>
-	
-	<rule>
-		<note>放在桌面</note>
-		<from>^/book/desktop/([0-9]\d*+).html$</from>
-		<to>/book/toDesktop.action?id=$1</to>
-	</rule>
-	
-	<rule>
-		<note>下载小说</note>
-		<from>^/book/download/([0-9]\d*+).html$</from>
-		<to>/download.action?id=$1</to>
-	</rule>
+
 </urlrewrite>
 

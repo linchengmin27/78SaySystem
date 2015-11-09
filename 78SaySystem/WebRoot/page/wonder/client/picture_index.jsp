@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@include file="../../include/client/import.jsp" %>
 
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
 		<div class="container">
 			<h1 class="color-green pull-left">奇葩天下 </h1>
 	        <ul class="pull-right breadcrumb">
-	            <li><a href="${ctx}/index.action">首页</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li>
 	            	<a>奇葩天下 </a>
 	            	<c:if test="${categoryId ne 30}">

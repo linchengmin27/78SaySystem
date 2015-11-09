@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*"  contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%@include file="../include/client/import.jsp" %>
 
 <!DOCTYPE html>
@@ -428,6 +428,7 @@
 		<!-- 种类内容 E -->
 		
 		<!-- 热文辣文 S -->
+		<%--
 		<div class="row-fluid">
 	    	<div class="span4">
 				<div class="headline"><h3>热文辣文</h3></div>
@@ -457,6 +458,7 @@
 	    		</div>	
 	    	</div>			    
 		</div>
+		--%>
 		<!-- 热吻辣文 E -->
 		
 		<%@include file="../include/client/link.jsp" %>
