@@ -43,12 +43,7 @@ public class IndexAction extends BaseAction<Article> {
 	public String search() {
 		try {
 			pageSize = 10;
-			ServletActionContext.getRequest().setCharacterEncoding("GBK");
-			System.out.println("===========" + key);
-			key = new String(key.getBytes("ISO-8859-1"),"GBK");
-			System.out.println("===========" + key);
-			key = new String(URLDecoder.decode(key,"GBK"));
-			System.out.println("===========" + key);
+			key = new String(key.getBytes("ISO-8859-1"),"utf-8");
 			long allRow = articleService.countArticle(key);
 			List<Article> list = articleService.getArticleList(key, page, pageSize);
 			pageBean = new PageBean<Article>(list, allRow, page, pageSize);

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE struts PUBLIC
-          "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-          "http://struts.apache.org/dtds/struts-2.0.dtd">
+<!DOCTYPE urlrewrite PUBLIC "-//tuckey.org//DTD UrlRewrite 3.2//EN"
+"http://tuckey.org/res/dtds/urlrewrite3.2.dtd">
 
 <!--
 	URL伪静态配置文件 
@@ -26,8 +25,7 @@
 	（3）在编写伪静态配置文件的时候,记得写清楚编写的模块及其编写人、
 	编写时间,其格式和Struts2配置文件的相同
 -->
-<urlrewrite>
-
+<urlrewrite decode-using="ISO-8859-1">
 	<rule>
 		<note>网站首页</note>
 		<from>^/index.html$</from>
@@ -40,5 +38,39 @@
 		<to>/search.action?key=$1</to>
 	</rule>
 
+	<rule>
+		<note>世界之最</note>
+		<from>^/world/index.html$</from>
+		<to>/world/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>世界之最</note>
+		<from>^/world/index/([0-9]\d*).html$</from>
+		<to>/world/index.action?page=$1</to>
+	</rule>
+	
+	<rule>
+		<note>世界之最</note>
+		<from>^/world/index/category/([0-9]\d*).html$</from>
+		<to>/world/index.action?categoryId=$1</to>
+	</rule>
+	
+	<rule>
+		<note>世界之最</note>
+		<from>^/world/index/category/([0-9]\d*)/([0-9]\d*).html$</from>
+		<to>/world/index.action?categoryId=$1&amp;page=$2</to>
+	</rule>
+	
+	<rule>
+		<note>世界之最详情</note>
+		<from>^/world/detail/([0-9]\d*).html$</from>
+		<to>/world/detail.action?id=$1</to>
+	</rule>
+	<rule>
+		<note>世界之最详情</note>
+		<from>^/world/detail/([0-9]\d*)/([0-9]\d*).html$</from>
+		<to>/world/detail.action?id=$1&amp;page=$2</to>
+	</rule>
 </urlrewrite>
 

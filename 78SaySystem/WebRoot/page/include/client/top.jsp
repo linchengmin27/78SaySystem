@@ -51,20 +51,20 @@
                 </a><!-- /nav-collapse -->                                  
                 <div class="nav-collapse collapse">                                     
                     <ul class="nav top-2">
-                        <li class="active">
+                        <li <c:if test="${empty(articleCategory.id)}">class="active"</c:if>>
                             <a href="${ctx}/index.html" class="dropdown-toggle">首页</a>
                             <b class="caret-out"></b>                        
                         </li>
                         
                         <c:forEach items="${sessionScope.categoryMap}" var="parent">
-                        <li>
+                        <li <c:if test="${articleCategory.id eq parent.key.id || articleCategory.parent.id eq parent.key.id}">class="active"</c:if>>
                         	<c:if test="${parent.value.size() > 0}">
                         	<a href="" class="dropdown-toggle" data-toggle="dropdown">${parent.key.name}
                                 <b class="caret"></b>                            
                             </a>
                             <ul class="dropdown-menu">
                             	<c:forEach items="${parent.value}" var="children">
-                            	<li><a href="${ctx}/${children.url}">${children.name}</a></li>
+                            	<li <c:if test="${articleCategory.id eq children.id}">class="active"</c:if>><a href="${ctx}/${children.url}">${children.name}</a></li>
                             	</c:forEach>
                             </ul>
                         	</c:if>

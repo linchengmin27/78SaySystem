@@ -30,7 +30,7 @@
 			<h1 class="color-green pull-left">世界之最 </h1>
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
-	            <li><a href="${ctx}/world/index.action">世界之最</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/world/index.html">世界之最</a> <span class="divider">/</span></li>
 	            <li class="active">${entity.title}</li>
 	        </ul>
 	    </div><!--/container-->

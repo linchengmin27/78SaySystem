@@ -23,10 +23,10 @@
 	<script type="text/javascript">
 	function ajaxSearch(page) {
 		var categoryId = '${categoryId}';
-		var url = basePath + '/world/index.action?page=' + page;
+		var url = basePath + '/mystery/index.action?page=' + page;
 		if($.trim(categoryId) != '') {
 			url += '&categoryId=' + categoryId;
-		}
+		} 
 		window.location.href = url;
 	}
 	</script>

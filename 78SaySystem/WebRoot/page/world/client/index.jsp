@@ -23,9 +23,11 @@
 	<script type="text/javascript">
 	function ajaxSearch(page) {
 		var categoryId = '${categoryId}';
-		var url = basePath + '/world/index.action?page=' + page;
+		var url = '';
 		if($.trim(categoryId) != '') {
-			url += '&categoryId=' + categoryId;
+			url = basePath + '/world/index/category/' + categoryId + '/' + page + '.html';
+		} else {
+			url = basePath + '/world/index/' + page + '.html';
 		}
 		window.location.href = url;
 	}
@@ -42,7 +44,7 @@
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li>
-	            	<a href="${ctx}/world/index.action">世界之最</a>
+	            	<a href="${ctx}/world/index.html">世界之最</a>
 	            	<c:if test="${categoryId ne 1}">
 	            	<span class="divider">/</span>
 	            	</c:if>

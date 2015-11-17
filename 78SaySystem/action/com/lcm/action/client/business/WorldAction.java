@@ -6,6 +6,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import com.lcm.action.client.base.BaseAction;
 import com.lcm.entity.business.Article;
+import com.lcm.entity.business.Category;
 import com.lcm.entity.business.Chapter;
 import com.lcm.util.file.PageBean;
 import com.lcm.util.file.StringUtil;
@@ -32,7 +33,9 @@ public class WorldAction extends BaseAction<Article> {
 	public String index() {
 		pageSize = 12;
 		if(StringUtil.isEmpty(categoryId)) categoryId = 1L;
-		entity.setCategory(articleService.getCategoryDetail(categoryId));
+		Category category = articleService.getCategoryDetail(categoryId);
+		entity.setCategory(category);
+		setAttrToRequest("articleCategory", category);
 		long allRow = articleService.countArticle(categoryId);
 		List<Article> list = articleService.getArticleList(categoryId, page, pageSize, " createTime desc");
 		pageBean = new PageBean<Article>(list, allRow, page, pageSize);

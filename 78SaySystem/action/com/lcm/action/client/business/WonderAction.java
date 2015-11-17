@@ -6,6 +6,7 @@ import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
 import com.lcm.action.client.base.BaseAction;
 import com.lcm.entity.business.Article;
+import com.lcm.entity.business.Category;
 import com.lcm.entity.business.Chapter;
 import com.lcm.util.file.PageBean;
 
@@ -28,7 +29,9 @@ public class WonderAction extends BaseAction<Article>  {
 	
 	@Action(value = "/wonder/news/index", results = {@Result(name = "success", location = PATH + "/news_index.jsp") })  
 	public String newsIndex() {
-		entity.setCategory(articleService.getCategoryDetail(30L));
+		Category category = articleService.getCategoryDetail(30L);
+		entity.setCategory(category);
+		setAttrToRequest("articleCategory", category);
 		long allRow = articleService.countArticle(30L);
 		List<Article> list = articleService.getArticleList(30L, page, pageSize, " createTime desc");
 		pageBean = new PageBean<Article>(list, allRow, page, pageSize);
@@ -39,7 +42,9 @@ public class WonderAction extends BaseAction<Article>  {
 	
 	@Action(value = "/wonder/picture/index", results = {@Result(name = "success", location = PATH + "/picture_index.jsp") })  
 	public String pictureIndex() {
-		entity.setCategory(articleService.getCategoryDetail(31L));
+		Category category = articleService.getCategoryDetail(31L);
+		entity.setCategory(category);
+		setAttrToRequest("articleCategory", category);
 		long allRow = articleService.countArticle(31L);
 		List<Article> list = articleService.getArticleList(31L, page, pageSize, " createTime desc");
 		pageBean = new PageBean<Article>(list, allRow, page, pageSize);
