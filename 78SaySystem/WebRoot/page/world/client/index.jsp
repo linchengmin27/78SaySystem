@@ -64,7 +64,7 @@
 	            <ul class="portfolio recent-work clearfix"> 
 	            	<c:forEach items="${pageBean.list}" var="article" varStatus="st">
 	                <li data-id="id-${st.index + 1}" class="web" title="${article.title}">
-	                    <a href="${ctx}/world/detail.action?id=${article.id}">
+	                    <a href="${ctx}/world/detail/${article.id}.html">
 	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 100%;max-width: 270px;"/></em>
 	                        <span>
 	                            <strong>${article.title}</strong>

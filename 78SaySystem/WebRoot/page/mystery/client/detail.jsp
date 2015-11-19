@@ -21,7 +21,7 @@
 	
 	<script type="text/javascript">
 	function ajaxSearch(page) {
-		var url = basePath + '/mystery/detail.action?id=${entity.id}&page=' + page;
+		var url = basePath + '/mystery/detail/${entity.id}/' + page + '.html';
 		window.location.href = url;
 	}
 	</script>
@@ -36,7 +36,7 @@
 			<h1 class="color-green pull-left">未接之谜 </h1>
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
-	            <li><a href="${ctx}/mystery/index.action">未接之谜</a> <span class="divider">/</span></li>
+	            <li><a href="${ctx}/mystery/index.html">未接之谜</a> <span class="divider">/</span></li>
 	            <li class="active">${entity.title}</li>
 	        </ul>
 	    </div><!--/container-->
@@ -58,7 +58,7 @@
 	                        <i class="icon-tags"></i> 
 	                        <c:set value="${entity.tag.split(',')}" var="tags"></c:set>
 	                        <c:forEach items="${tags}" var="t">
-	                        <a href="${ctx}/search.action?key=${t}">${t}</a>&nbsp;&nbsp;
+	                        <a href="${ctx}/search/${t}.html">${t}</a>&nbsp;&nbsp;
 	                        </c:forEach>
 	                    </li>
 	                </ul>
@@ -84,9 +84,9 @@
 		            <div class="headline"><h3>相关推荐</h3></div>
 	                <c:forEach items="${relateArticles}" var="article">
 	                <dl class="dl-horizontal">
-	                    <dt><a href="${ctx}/world/detail.action?id=${article.id}"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
+	                    <dt><a href="${ctx}/mystery/detail/${article.id}.html"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
 	                    <dd>
-	                        <p><a href="${ctx}/world/detail.action?id=${article.id}">${article.title}</a></p> 
+	                        <p><a href="${ctx}/mystery/detail/${article.id}.html">${article.title}</a></p> 
 	                    </dd>
 	                </dl>
 	                </c:forEach>
@@ -95,7 +95,7 @@
 	        	<div class="headline"><h3>标签</h3></div>
 	            <ul class="unstyled inline blog-tags">
 	            	<c:forEach items="${articleTags}" var="articleTag">
-	            	<li><a href="${ctx}/search.action?key=${articleTag.name}"><i class="icon-tags"></i>${articleTag.name}</a></li>
+	            	<li><a href="${ctx}/search/${articleTag.name}.html"><i class="icon-tags"></i>${articleTag.name}</a></li>
 	            	</c:forEach>
 	            </ul>
 	        </div><!--/span3-->

@@ -39,16 +39,16 @@
 	                      <p>
 	                      	 <c:choose>
 			             	<c:when test="${art.category.parent.id eq 1}">
-				             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+				             	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	<c:when test="${art.category.parent.id eq 14}">
-			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             		<a href="${ctx}/records/detail/${art.id}.html" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	<c:when test="${art.category.parent.id eq 21}">
-			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             		<a href="${ctx}/mystery/detail/${art.id}.html" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	<c:when test="${art.category.parent.id eq 29}">
-			             		<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	</c:choose>
 	                      </p>
@@ -82,7 +82,7 @@
 					    		<span class="name">
 			                    	<c:choose>
 					             	<c:when test="${art.category.parent.id eq 1}">
-						             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+						             	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 				                    		<c:choose>
 				                    		<c:when test="${fn:length(art.title) <= 12}">
 				                    		${art.title}
@@ -94,7 +94,7 @@
 				                    	</a>
 					             	</c:when>
 					             	<c:when test="${art.category.parent.id eq 14}">
-					             		<a href="${ctx}/records/detail.action?id=${art.id}" title="${art.title}">
+					             		<a href="${ctx}/records/detail/${art.id}.html" title="${art.title}">
 				                    		<c:choose>
 				                    		<c:when test="${fn:length(art.title) <= 12}">
 				                    		${art.title}
@@ -106,7 +106,7 @@
 				                    	</a>
 					             	</c:when>
 					             	<c:when test="${art.category.parent.id eq 21}">
-					             		<a href="${ctx}/mystery/detail.action?id=${art.id}" title="${art.title}">
+					             		<a href="${ctx}/mystery/detail/${art.id}.html" title="${art.title}">
 				                    		<c:choose>
 				                    		<c:when test="${fn:length(art.title) <= 12}">
 				                    		${art.title}
@@ -156,17 +156,17 @@
                             <p>
                             	<c:choose>
 				             	<c:when test="${art.category.parent.id eq 1}">
-					             	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+					             	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 			                    		${art.title}
 			                    	</a>
 				             	</c:when>
 				             	<c:when test="${art.category.parent.id eq 14}">
-				             		<a href="${ctx}/records/detail.action?id=${art.id}" title="${art.title}">
+				             		<a href="${ctx}/records/detail/${art.id}.html" title="${art.title}">
 			                    		${art.title}
 			                    	</a>
 				             	</c:when>
 				             	<c:when test="${art.category.parent.id eq 21}">
-				             		<a href="${ctx}/mystery/detail.action?id=${art.id}" title="${art.title}">
+				             		<a href="${ctx}/mystery/detail/${art.id}.html" title="${art.title}">
 			                    		${art.title}
 			                    	</a>
 				             	</c:when>
@@ -210,7 +210,7 @@
 	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
 	                    </div>
 	                    <h3>
-	                    	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+	                    	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
 	                    		${art.title}
@@ -241,10 +241,10 @@
 	                <div class="thumbnail-style thumbnail-kenburn">
 	                    <div class="thumbnail-img">
 	                        <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
-	                        <a class="btn-more hover-effect" href="${ctx}/records/detail.action?id=${art.id}">阅读更多 +</a>					
+	                        <a class="btn-more hover-effect" href="${ctx}/records/detail/${art.id}.html">阅读更多 +</a>					
 	                    </div>
 	                    <h3>
-	                    	<a href="${ctx}/world/detail.action?id=${art.id}" title="${art.title}">
+	                    	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
 	                    		${art.title}
@@ -280,7 +280,7 @@
 	            <li class="span3 thumbnail-style thumbnail-kenburn">
 	                <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
 	                <h3>
-	                	<a href="${ctx}/records/detail.action?id=${art.id}">
+	                	<a href="${ctx}/records/detail/${art.id}.html">
 	                		<c:choose>
                     		<c:when test="${fn:length(art.title) <= 10}">
                     		${art.title}
@@ -301,7 +301,7 @@
                    		</c:otherwise>
                    		</c:choose>
 	                </p>
-	                <p><a class="btn-u btn-u-small" href="${ctx}/records/detail.action?id=${art.id}">阅读更多</a></p>
+	                <p><a class="btn-u btn-u-small" href="${ctx}/records/detail/${art.id}.html">阅读更多</a></p>
 	            </li>
 	            </c:forEach>
 	        </ul>
@@ -315,14 +315,14 @@
 	            <c:forEach items="${category21Articles}" var="art" begin="0" end="3">
 	            <li class="span3">
 	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail/${art.id}.html">
 	                        <div class="overlay-zoom">	
 	                            <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/>
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
 	                    <h3>
-	                    	<a href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    	<a href="${ctx}/mystery/detail/${art.id}.html">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
 	                    		${art.title}
@@ -342,7 +342,7 @@
 	                   		${fn:substring(art.abstract_, 0, 50)}..
 	                   		</c:otherwise>
 	                   		</c:choose>
-	                    	<a class="read-more" href="${ctx}/mystery/detail.action?id=${art.id}">阅读更多</a>
+	                    	<a class="read-more" href="${ctx}/mystery/detail/${art.id}.html">阅读更多</a>
 	                    </p>
 	                </div>
 	            </li>
@@ -352,14 +352,14 @@
 	            <c:forEach items="${category21Articles}" var="art" begin="4" end="7">
 	            <li class="span3">
 	                <div class="thumbnail-style">
-	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    <a class="fancybox-button zoomer" title="Project #1" href="${ctx}/mystery/detail/${art.id}.html">
 	                        <div class="overlay-zoom">	
 	                            <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/>
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
 	                    <h3>
-	                    	<a href="${ctx}/mystery/detail.action?id=${art.id}">
+	                    	<a href="${ctx}/mystery/detail/${art.id}.html">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
 	                    		${art.title}
@@ -379,7 +379,7 @@
 	                   		${fn:substring(art.abstract_, 0, 50)}..
 	                   		</c:otherwise>
 	                   		</c:choose>
-	                    	<a class="read-more" href="${ctx}/mystery/detail.action?id=${art.id}">阅读更多</a>
+	                    	<a class="read-more" href="${ctx}/mystery/detail/${art.id}.html">阅读更多</a>
 	                    </p>
 	                </div>
 	            </li>

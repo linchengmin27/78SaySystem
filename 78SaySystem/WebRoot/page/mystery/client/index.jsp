@@ -23,10 +23,12 @@
 	<script type="text/javascript">
 	function ajaxSearch(page) {
 		var categoryId = '${categoryId}';
-		var url = basePath + '/mystery/index.action?page=' + page;
+		var url = '';
 		if($.trim(categoryId) != '') {
-			url += '&categoryId=' + categoryId;
-		} 
+			url = basePath + '/mystery/index/category/' + categoryId + '/' + page + '.html';
+		} else {
+			url = basePath + '/mystery/index/' + page + '.html';
+		}
 		window.location.href = url;
 	}
 	</script>
@@ -42,7 +44,7 @@
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li>
-	            	<a href="${ctx}/mystery/index.action">未接之谜 </a>
+	            	<a href="${ctx}/mystery/index.html">未接之谜 </a>
 	            	<c:if test="${categoryId ne 21}">
 	            	<span class="divider">/</span>
 	            	</c:if>
@@ -61,20 +63,20 @@
 	        <div id="w">    
 	        	<div class="sort" id="sort">
 					<ul class="unstyled inline"> 
-	                	<li><a href="${ctx}/mystery/index.action" <c:if test="${categoryId eq 21}">class="selected"</c:if>>所有</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=22" <c:if test="${categoryId eq 22}">class="selected"</c:if>>奇闻</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=23" <c:if test="${categoryId eq 23}">class="selected"</c:if>>宇宙</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=24" <c:if test="${categoryId eq 24}">class="selected"</c:if>>自然</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=25" <c:if test="${categoryId eq 25}">class="selected"</c:if>>考古</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=26" <c:if test="${categoryId eq 26}">class="selected"</c:if>>科学</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=27" <c:if test="${categoryId eq 27}">class="selected"</c:if>>历史</a></li>
-	                	<li><a href="${ctx}/mystery/index.action?categoryId=28" <c:if test="${categoryId eq 28}">class="selected"</c:if>>UFO</a></li>
+	                	<li><a href="${ctx}/mystery/index.html" <c:if test="${categoryId eq 21}">class="selected"</c:if>>所有</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/22.html" <c:if test="${categoryId eq 22}">class="selected"</c:if>>奇闻</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/23.html" <c:if test="${categoryId eq 23}">class="selected"</c:if>>宇宙</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/24.html" <c:if test="${categoryId eq 24}">class="selected"</c:if>>自然</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/25.html" <c:if test="${categoryId eq 25}">class="selected"</c:if>>考古</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/26.html" <c:if test="${categoryId eq 26}">class="selected"</c:if>>科学</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/27.html" <c:if test="${categoryId eq 27}">class="selected"</c:if>>历史</a></li>
+	                	<li><a href="${ctx}/mystery/index/category/28.html" <c:if test="${categoryId eq 28}">class="selected"</c:if>>UFO</a></li>
 	                </ul>
 	            </div>
 	            <ul class="portfolio recent-work clearfix"> 
 	            	<c:forEach items="${pageBean.list}" var="article" varStatus="st">
 	                <li data-id="id-${st.index + 1}" class="web" title="${article.title}">
-	                    <a href="${ctx}/mystery/detail.action?id=${article.id}">
+	                    <a href="${ctx}/mystery/detail/${article.id}.html">
 	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 100%;max-width: 270px;"/></em>
 	                        <span>
 	                            <strong>${article.title}</strong>

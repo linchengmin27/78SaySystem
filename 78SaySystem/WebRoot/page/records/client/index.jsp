@@ -19,6 +19,18 @@
 	-->
 	<%@include file="../../include/client/style.jsp" %>
 
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var categoryId = '${categoryId}';
+		var url = '';
+		if($.trim(categoryId) != '') {
+			url = basePath + '/records/index/category/' + categoryId + '/' + page + '.html';
+		} else {
+			url = basePath + '/records/index/' + page + '.html';
+		}
+		window.location.href = url;
+	}
+	</script>
   </head>
   
   <body>
@@ -31,7 +43,7 @@
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li>
-	            	<a href="${ctx}/records/index.action">吉尼斯纪录 </a>
+	            	<a href="${ctx}/records/index.html">吉尼斯纪录 </a>
 	            	<c:if test="${categoryId ne 14}">
 	            	<span class="divider">/</span>
 	            	</c:if>
@@ -55,7 +67,7 @@
 	                	<%--<img src="${ctx}/images/clients/cisco.png" class="img-colorful" alt="" />--%>
 					</a>                        
 	                <div style="display: inline;">
-	                	<h3><a class="linked color-green" href="${ctx}/records/detail.action?id=${article.id}">${article.title}</a></h3>
+	                	<h3><a class="linked color-green" href="${ctx}/records/detail/${article.id}.html">${article.title}</a></h3>
 	                	<p>${article.content}</p>
 	                </div>
 	            </div>
@@ -73,12 +85,12 @@
 	            <div class="who margin-bottom-30">
 	                <div class="headline"><h3>分类</h3></div>
 	                <ul class="unstyled">
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=15"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;人&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=16"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;事&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=17"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;物&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=18"><i class="icon-trophy"></i>吉尼斯记录——单位<i class="icon-trophy"></i></a></h5></li>
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=19"><i class="icon-trophy"></i>吉尼斯记录——国家<i class="icon-trophy"></i></a></h5></li>
-                        <li><h5><a href="${ctx}/records/index.action?categoryId=20"><i class="icon-trophy"></i>吉尼斯记录——思维<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/15.html"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;人&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/16.html"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;事&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/17.html"><i class="icon-trophy"></i>吉尼斯记录——&nbsp;&nbsp;物&nbsp;&nbsp;<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/18.html"><i class="icon-trophy"></i>吉尼斯记录——单位<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/19.html"><i class="icon-trophy"></i>吉尼斯记录——国家<i class="icon-trophy"></i></a></h5></li>
+                        <li><h5><a href="${ctx}/records/index/category/20.html"><i class="icon-trophy"></i>吉尼斯记录——思维<i class="icon-trophy"></i></a></h5></li>
 	                </ul>
 	            </div>
 	        </div><!--/span3-->

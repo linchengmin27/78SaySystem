@@ -65,16 +65,16 @@
 	             <div style="display: inline;">
 	             	<c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -92,16 +92,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -124,16 +124,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -151,16 +151,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -183,16 +183,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -210,16 +210,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -242,16 +242,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -269,16 +269,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -301,16 +301,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
@@ -328,16 +328,16 @@
 	             <div style="display: inline;">
 	                <c:choose>
 	             	<c:when test="${art.category.parent.id eq 1}">
-	             	<h2><a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/world/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/world/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/world/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 14}">
-	             	<h2><a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/records/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/records/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/records/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 21}">
-	             	<h2><a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>
-	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail.action?id=${art.id}" target="_blank">阅读更多</a></p>
+	             	<h2><a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">${art.title}</a></h2>
+	             	<p>${art.abstract_}<a href="${ctx}/mystery/detail/${art.id}.html" target="_blank">阅读更多</a></p>
 	             	</c:when>
 	             	<c:when test="${art.category.parent.id eq 29}">
 	             	<h2><a href="${ctx}/wonder/detail.action?id=${art.id}" target="_blank">${art.title}</a></h2>

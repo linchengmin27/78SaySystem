@@ -72,7 +72,7 @@
 	        	<div class="headline"><h3>热门标签</h3></div>
 	            <ul class="unstyled inline blog-tags">
 	            	<c:forEach items="${articleTags}" var="articleTag">
-	            	<li><a href="${ctx}/search.action?key=${articleTag.name}"><i class="icon-tags"></i>${articleTag.name}</a></li>
+	            	<li><a href="${ctx}/search/${articleTag.name}.html"><i class="icon-tags"></i>${articleTag.name}</a></li>
 	            	</c:forEach>
 	            </ul>
 				
