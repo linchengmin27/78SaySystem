@@ -52,7 +52,7 @@ public class WonderAction extends BaseAction<Article>  {
 		return SUCCESS;
 	}
 	
-	@Action(value = "/worder/detail", results = {@Result(name = "success", location = PATH + "/detail.jsp") })  
+	@Action(value = "/wonder/detail", results = {@Result(name = "success", location = PATH + "/detail.jsp") })  
 	public String detail() {
 		entity = articleService.getArticleDetail(entity.getId());
 		if(page <= 1) {

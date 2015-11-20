@@ -20,7 +20,7 @@
 	<%@include file="../../include/client/style.jsp" %>
 	<script type="text/javascript">
 	function ajaxSearch(page) {
-		var url = basePath + '/wonder/news/index.action?page=' + page;
+		var url = basePath + '/wonder/news/index/' + page + '.html';
 		window.location.href = url;
 	}
 	</script>
@@ -55,12 +55,12 @@
 	    	<div class="span9">
 	    		<c:forEach items="${pageBean.list}" var="article" varStatus="st">
 	            <div class="clients-page margin-bottom-20">
-	            	<a class="img-hover" href="#">
+	            	<a class="img-hover" href="${ctx}/wonder/detail/${article.id}.html">
 	                	<img src="${ctx}/${article.logo}" alt="${article.title}" />
 	                	<%--<img src="${ctx}/images/clients/cisco.png" class="img-colorful" alt="" />--%>
 					</a>                        
 	                <div style="display: inline;">
-	                	<h3><a class="linked color-green" href="${ctx}/worder/detail.action?id=${article.id}">${article.title}</a></h3>
+	                	<h3><a class="linked color-green" href="${ctx}/wonder/detail/${article.id}.html">${article.title}</a></h3>
 	                	<p>${article.content}</p>
 	                </div>
 	            </div>
@@ -80,9 +80,9 @@
 		            <div class="headline"><h3>当前热评</h3></div>
 		            <c:forEach items="${reviewsArticles}" var="article">
                 	<dl class="dl-horizontal">
-	                    <dt><a href="${ctx}/wonder/detail.action?id=${article.id}"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
+	                    <dt><a href="${ctx}/wonder/detail/${article.id}.html"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
 	                    <dd>
-	                        <p><a href="${ctx}/wonder/detail.action?id=${article.id}">${article.title}</a></p> 
+	                        <p><a href="${ctx}/wonder/detail/${article.id}.html">${article.title}</a></p> 
 	                    </dd>
 	                </dl>
 	                </c:forEach>

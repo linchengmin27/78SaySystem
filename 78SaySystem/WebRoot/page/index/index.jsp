@@ -48,7 +48,7 @@
 			             		<a href="${ctx}/mystery/detail/${art.id}.html" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	<c:when test="${art.category.parent.id eq 29}">
-			             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">${art.title}</a>
+			             		<a href="${ctx}/wonder/detail/${art.id}.html" title="${art.title}">${art.title}</a>
 			             	</c:when>
 			             	</c:choose>
 	                      </p>
@@ -118,7 +118,7 @@
 				                    	</a>
 					             	</c:when>
 					             	<c:when test="${art.category.parent.id eq 29}">
-					             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">
+					             		<a href="${ctx}/wonder/detail/${art.id}.html" title="${art.title}">
 				                    		<c:choose>
 				                    		<c:when test="${fn:length(art.title) <= 12}">
 				                    		${art.title}
@@ -171,7 +171,7 @@
 			                    	</a>
 				             	</c:when>
 				             	<c:when test="${art.category.parent.id eq 29}">
-				             		<a href="${ctx}/wonder/detail.action?id=${art.id}" title="${art.title}">
+				             		<a href="${ctx}/wonder/detail/${art.id}.html" title="${art.title}">
 			                    		${art.title}
 			                    	</a>
 				             	</c:when>
@@ -389,39 +389,42 @@
 	        <!-- 未解之谜 E -->
 	
 	    	<!-- 天下奇葩 S -->
+	    	<c:if test="${category29Articles.size() > 0}">
 	        <div class="headline"><h3>天下奇葩</h3></div>
 	        <ul class="thumbnails">
+	            <c:forEach items="${category29Articles}" var="art">
 	            <li class="span4">
 	                <div class="thumbnail thumbnail-kenburn">
-	                    <div class="overflow-hidden"><img src="${ctx}/images/carousel/5.jpg" alt="" /></div>
+	                    <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height:227px; width: 100%;max-width: 360px;"/></div>
 	                    <div class="caption">
-	                        <h3>Thumbnail label</h3>
-	                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nullam nieh.</p>
-	                        <p><a href="#" class="btn-u">阅读更多</a></p>
+	                        <h3>
+	                        	<c:choose>
+	                    		<c:when test="${fn:length(art.title) <= 8}">
+	                    		${art.title}
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    		${fn:substring(art.title, 0, 8)}..
+	                    		</c:otherwise>
+	                    		</c:choose>
+	                        </h3>
+	                        <p>
+	                        	<c:choose>
+		                   		<c:when test="${fn:length(art.abstract_) <= 50}">
+		                   		${art.abstract_}
+		                   		</c:when>
+		                   		<c:otherwise>
+		                   		${fn:substring(art.abstract_, 0, 50)}..
+		                   		</c:otherwise>
+		                   		</c:choose>
+	                        </p>
+	                        <p><a href="${ctx}/wonder/detail/${art.id}.html" class="btn-u">阅读更多</a></p>
 	                    </div>
 	                </div>
 	            </li>
-	            <li class="span4">
-	                <div class="thumbnail thumbnail-kenburn">
-	                    <div class="overflow-hidden"><img src="${ctx}/images/carousel/6.jpg" alt="" /></div>
-	                    <div class="caption">
-	                        <h3>Thumbnail label</h3>
-	                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nullam nieh.</p>
-	                        <p><a href="#" class="btn-u">阅读更多</a></p>
-	                    </div>
-	                </div>
-	            </li>
-	            <li class="span4">
-	                <div class="thumbnail thumbnail-kenburn">
-	                    <div class="overflow-hidden"><img src="${ctx}/images/carousel/7.jpg" alt="" /></div>
-	                    <div class="caption">
-	                        <h3>Thumbnail label</h3>
-	                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nullam nieh.</p>
-	                        <p><a href="#" class="btn-u">阅读更多</a></p>
-	                    </div>
-	                </div>
-	            </li>
+	           </c:forEach>
+	           
 	        </ul>
+	        </c:if>
 	        <!-- 天下奇葩 E -->                    
 	
 		</div>

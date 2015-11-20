@@ -18,7 +18,12 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	<%@include file="../../include/client/style.jsp" %>
-	
+	<script type="text/javascript">
+	function ajaxSearch(page) {
+		var url = basePath + '/wonder/detail/${entity.id}/' + page + '.html';
+		window.location.href = url;
+	}
+	</script>
   </head>
   
   <body>
@@ -30,7 +35,12 @@
 			<h1 class="color-green pull-left">世界之最 </h1>
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
-	            <li><a href="${ctx}/wonder/index.action">世界之最</a> <span class="divider">/</span></li>
+	            <c:if test="${entity.category.id eq 30}">
+	            <li><a href="${ctx}/wonder/news/index.action">世界之最</a> <span class="divider">/</span></li>
+	            </c:if>
+	            <c:if test="${entity.category.id eq 31}">
+	            <li><a href="${ctx}/wonder/picture/index.action">世界之最</a> <span class="divider">/</span></li>
+	            </c:if>
 	            <li class="active">${entity.title}</li>
 	        </ul>
 	    </div><!--/container-->
@@ -78,9 +88,9 @@
 		            <div class="headline"><h3>相关推荐</h3></div>
 	                <c:forEach items="${relateArticles}" var="article">
 	                <dl class="dl-horizontal">
-	                    <dt><a href="${ctx}/wonder/detail.action?id=${article.id}"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
+	                    <dt><a href="${ctx}/wonder/detail/${article.id}.html"><img src="${ctx}/${article.logo}" alt="" /></a></dt>
 	                    <dd>
-	                        <p><a href="${ctx}/wonder/detail.action?id=${article.id}">${article.title}</a></p> 
+	                        <p><a href="${ctx}/wonder/detail/${article.id}.html">${article.title}</a></p> 
 	                    </dd>
 	                </dl>
 	                </c:forEach>

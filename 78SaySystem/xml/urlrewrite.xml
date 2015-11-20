@@ -152,5 +152,43 @@
 	</rule>
 	
 	<!-- 未解之谜 E -->
+	
+	<!-- 奇葩天下 S -->
+	<rule>
+		<note>奇葩天下</note>
+		<from>^/wonder/news/index.html$</from>
+		<to>/wonder/news/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>奇葩天下</note>
+		<from>^/wonder/news/index/([0-9]\d*).html$</from>
+		<to>/wonder/news/index.action?page=$1</to>
+	</rule>
+	
+	<rule>
+		<note>奇葩天下</note>
+		<from>^/wonder/picture/index.html$</from>
+		<to>/wonder/picture/index.action</to>
+	</rule>
+	
+	<rule>
+		<note>奇葩天下</note>
+		<from>^/wonder/picture/index/([0-9]\d*).html$</from>
+		<to>/wonder/picture/index.action?page=$1</to>
+	</rule>
+	
+	<rule>
+		<note>奇葩天下详情</note>
+		<from>^/wonder/detail/([0-9]\d*).html$</from>
+		<to>/wonder/detail.action?id=$1</to>
+	</rule>
+	<rule>
+		<note>奇葩天下详情</note>
+		<from>^/wonder/detail/([0-9]\d*)/([0-9]\d*).html$</from>
+		<to>/wonder/detail.action?id=$1&amp;page=$2</to>
+	</rule>
+	
+	<!-- 奇葩天下 E -->
 </urlrewrite>
 
