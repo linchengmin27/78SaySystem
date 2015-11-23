@@ -26,7 +26,7 @@
 	</script>
   </head>
   
-  <body style="font-size: 16px;">
+  <body>
   	<%@include file="../../include/client/top.jsp" %>
   	
   	<!-- 面包屑导航 S -->
@@ -48,7 +48,7 @@
 	<!-- 面包屑导航 E -->
   	
   	<!-- 内容 S -->
-  	<div class="container">		
+  	<div class="container" style="font-size: 16px;">		
 		<div class="row-fluid blog-page blog-item">
 	        <!-- Left Sidebar -->
 	    	<div class="span9">
