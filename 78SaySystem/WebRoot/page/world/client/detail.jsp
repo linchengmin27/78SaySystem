@@ -27,7 +27,7 @@
 	</script>
   </head>
   
-  <body>
+  <body style="font-size: 16px;">
   	<%@include file="../../include/client/top.jsp" %>
   	
   	<!-- 面包屑导航 S -->

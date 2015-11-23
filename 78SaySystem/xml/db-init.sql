@@ -19,7 +19,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- Table structure for `Article`
 -- ----------------------------
 DROP TABLE IF EXISTS `Article`;
-CREATE TABLE `article` (
+CREATE TABLE `Article` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(256) DEFAULT NULL COMMENT '标题',
   `abstract` varchar(512) DEFAULT NULL COMMENT '摘要',
@@ -51,7 +51,7 @@ CREATE TABLE `article` (
 -- Table structure for `Category`
 -- ----------------------------
 DROP TABLE IF EXISTS `Category`;
-CREATE TABLE `category` (
+CREATE TABLE `Category` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(128) DEFAULT NULL COMMENT '类别名称',
   `shorthand` varchar(128) DEFAULT NULL COMMENT '简写',
@@ -109,7 +109,7 @@ INSERT INTO `Category` VALUES ('36', '所有', null, null, '21', 'mystery/index.
 -- Table structure for `Chapter`
 -- ----------------------------
 DROP TABLE IF EXISTS `Chapter`;
-CREATE TABLE `chapter` (
+CREATE TABLE `Chapter` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `content` text COMMENT '章节内容',
   `articleId` bigint(20) DEFAULT NULL COMMENT '归属文章ID',
@@ -128,7 +128,7 @@ CREATE TABLE `chapter` (
 -- Table structure for `Comment`
 -- ----------------------------
 DROP TABLE IF EXISTS `Comment`;
-CREATE TABLE `comment` (
+CREATE TABLE `Comment` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `name` varchar(256) DEFAULT NULL COMMENT '称呼',
   `content` varchar(1024) DEFAULT NULL COMMENT '评论内容',
@@ -148,7 +148,7 @@ CREATE TABLE `comment` (
 -- Table structure for `ContactUs`
 -- ----------------------------
 DROP TABLE IF EXISTS `ContactUs`;
-CREATE TABLE `contactus` (
+CREATE TABLE `Contactus` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(128) DEFAULT NULL COMMENT '称呼',
   `email` varchar(512) DEFAULT NULL COMMENT '邮箱',
@@ -168,7 +168,7 @@ CREATE TABLE `contactus` (
 -- Table structure for `FriendLink`
 -- ----------------------------
 DROP TABLE IF EXISTS `FriendLink`;
-CREATE TABLE `friendlink` (
+CREATE TABLE `Friendlink` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `title` varchar(256) DEFAULT NULL COMMENT '友情链接标题',
   `url` varchar(1024) DEFAULT NULL COMMENT 'URL',
@@ -188,7 +188,7 @@ CREATE TABLE `friendlink` (
 -- Table structure for `Module`
 -- ----------------------------
 DROP TABLE IF EXISTS `Module`;
-CREATE TABLE `module` (
+CREATE TABLE `Module` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(64) DEFAULT NULL COMMENT '模块名称',
   `isOpen` bit(1) DEFAULT b'1' COMMENT '是否开启',
@@ -209,7 +209,7 @@ CREATE TABLE `module` (
 -- Table structure for `SystemParam`
 -- ----------------------------
 DROP TABLE IF EXISTS `SystemParam`;
-CREATE TABLE `systemparam` (
+CREATE TABLE `Systemparam` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `code` varchar(128) DEFAULT NULL COMMENT '参数标识',
   `value` varchar(1024) DEFAULT NULL COMMENT '参数值',
@@ -227,7 +227,7 @@ CREATE TABLE `systemparam` (
 -- Table structure for `Tag`
 -- ----------------------------
 DROP TABLE IF EXISTS `Tag`;
-CREATE TABLE `tag` (
+CREATE TABLE `Tag` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT COMMENT '主键',
   `name` varchar(256) DEFAULT NULL COMMENT '标签名称',
   `isDelete` bit(1) DEFAULT b'0' COMMENT '是否删除',

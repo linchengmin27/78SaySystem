@@ -1,1 +1,10 @@
 （1）文章录入Article content的长度保持500个长度
+（2） 字体：16px 宋体 行间距1.75
+<p style="line-height: 1.75em; text-indent: 2em; text-align: left;">
+    <span style="font-family: 宋体, SimSun;">据英国媒体报道，最受澳大利亚人们喜爱的白化座头鲸“米伽罗”（Migaloo）最近一次现身是在去年新南威尔士的格林角海岸，这令当地民众惊喜不已。随后的几天，“米伽罗”又数次出现在悉尼的Cronulla海滩，让人大饱眼福。</span>
+</p>
+（3） image 大小 width: 500px; height: 340px;
+<p style="text-align: center;">
+    <img src="http://localhost:9080/78SaySystem/upload/20151123/text-22-1-1.jpg" style="width: 500px; height: 340px;"/>
+</p>
+图片地址需要修改为：http://localhost:9080/78SaySystem-->[basePath]
