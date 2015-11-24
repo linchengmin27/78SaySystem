@@ -13,3 +13,5 @@
     <img src="http://localhost:9080/78SaySystem/upload/20151123/text-22-1-1.jpg" style="width: 500px; height: 340px;"/>
 </p>
 图片地址需要修改为：http://localhost:9080/78SaySystem-->[basePath]
+
+INSERT INTO Tag(`name`,isDelete,createTime,modifyTime) VALUES('',0,now(),now());
