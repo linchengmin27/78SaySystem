@@ -67,7 +67,7 @@
 	                    <small>${entity.abstract_}</small>
 	                </blockquote>
 	            	
-	                ${chapter.content}
+	                ${chapter.displayContent}
 	                <%@include file="../../include/client/detail_ajax_pager.jsp" %>  
 	            </div>
 	

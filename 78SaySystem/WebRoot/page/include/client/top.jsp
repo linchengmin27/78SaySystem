@@ -38,7 +38,7 @@
     <div class="container"> 
         <!-- Logo -->       
         <div class="logo" style="top: -15px;left: -10px;">                                             
-            <a href="${ctx}/page/index/index.jsp"><img id="logo-header" src="${ctx}/images/logo.png" alt="78Say奇葩说"/></a>
+            <a href="${ctx}/index.html"><img id="logo-header" src="${ctx}/images/logo.png" alt="78Say奇葩说"/></a>
         </div><!-- /logo -->        
                                     
         <!-- Menu -->       

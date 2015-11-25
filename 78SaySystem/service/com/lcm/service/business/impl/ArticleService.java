@@ -127,13 +127,13 @@ public class ArticleService extends BaseService implements IArticleService {
 	/**
 	 * 获取放置首页的文章信息
 	 * */
-	public List<Article> getIsPlacedHomeArticleList(Long categoryId) {
+	public List<Article> getIsPlacedHomeArticleList(Long categoryId, int pageSize) {
 		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
 		String hql = "from Article where isDelete=:isDelete and isPlacedHome=:isPlacedHome and category.parent.id=:categoryId order by createTime desc";
 		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
 		paramMap.put("isPlacedHome", EntityParamType.IsPlacedHome.YES);
 		paramMap.put("categoryId", categoryId);
-		return dao.getEntities(hql, paramMap, 1, 4);
+		return dao.getEntities(hql, paramMap, 1, pageSize);
 	}
 	
 	/**

@@ -32,10 +32,10 @@ public class IndexAction extends BaseAction<Article> {
 		setAttrToRequest("featuredArticles", articleService.getiIsFeaturedArticleList());
 		setAttrToRequest("headlinesArticles", articleService.getIsHeadlinesArticleList());
 		setAttrToRequest("lastestArticles", articleService.getArticleList(null, 1, 2, " createTime desc"));
-		setAttrToRequest("category1Articles", articleService.getIsPlacedHomeArticleList(1L));
-		setAttrToRequest("category14Articles", articleService.getIsPlacedHomeArticleList(14L));
-		setAttrToRequest("category21Articles", articleService.getIsPlacedHomeArticleList(21L));
-		setAttrToRequest("category29Articles", articleService.getIsPlacedHomeArticleList(29L));
+		setAttrToRequest("category1Articles", articleService.getIsPlacedHomeArticleList(1L, 8));
+		setAttrToRequest("category14Articles", articleService.getIsPlacedHomeArticleList(14L, 4));
+		setAttrToRequest("category21Articles", articleService.getIsPlacedHomeArticleList(21L, 8));
+		setAttrToRequest("category29Articles", articleService.getIsPlacedHomeArticleList(29L, 4));
 		return SUCCESS;
 	}
 

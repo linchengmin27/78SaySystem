@@ -5,6 +5,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.lcm.entity.base.BaseEntity;
 
@@ -20,6 +21,7 @@ public class Chapter extends BaseEntity {
 	private String content;
 	private Article article;
 	private Integer sort;
+	private String displayContent;
 	
 	public String getContent() {
 		return content;
@@ -45,5 +47,14 @@ public class Chapter extends BaseEntity {
 	
 	public void setSort(Integer sort) {
 		this.sort = sort;
+	}
+
+	public void setDisplayContent(String displayContent) {
+		this.displayContent = displayContent;
+	}
+
+	@Transient
+	public String getDisplayContent() {
+		return displayContent;
 	}
 }

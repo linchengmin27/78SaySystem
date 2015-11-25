@@ -51,7 +51,7 @@ public interface IArticleService {
 	/**
 	 * 获取放置首页的文章信息
 	 * */
-	public List<Article> getIsPlacedHomeArticleList(Long categoryId);
+	public List<Article> getIsPlacedHomeArticleList(Long categoryId, int pageSize);
 	
 	/**
 	 * 获取头条的文章信息

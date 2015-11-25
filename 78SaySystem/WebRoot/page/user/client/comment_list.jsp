@@ -10,7 +10,7 @@
     </a>
     <div class="media-body">
     <h4 class="media-heading">${comment.name} <span>${comment.displayFullTime}</span></h4>
-    <p>${comment.content}</p>
+    <p><c:out value="${comment.content}"></c:out></p>
     </div>
 </div><!--/media-->
 </c:forEach>

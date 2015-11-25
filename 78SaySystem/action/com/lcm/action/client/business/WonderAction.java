@@ -65,7 +65,7 @@ public class WonderAction extends BaseAction<Article>  {
 				chapter = articleService.getArticleChapter(entity.getId(), chapterId);
 			}
 		}
-		chapter.setContent(replaceContent(chapter.getContent()));
+		chapter.setDisplayContent(replaceContent(chapter.getContent()));
 		
 		List<Chapter> list = articleService.getArticleChapterList(entity.getId(), -1, 1);
 		chapterPageBean = new PageBean<Chapter>(list, list.size(), page, 1);
