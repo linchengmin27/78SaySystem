@@ -4,14 +4,12 @@
  <meta charset="utf-8" />
  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- CSS Global Compulsory-->
 <link rel="stylesheet" href="${ctx}/plugins/bootstrap/css/bootstrap.min.css" />
 <link rel="stylesheet" href="${ctx}/css/style.css" />
 <link rel="stylesheet" href="${ctx}/css/headers/header1.css" />
 <link rel="stylesheet" href="${ctx}/plugins/bootstrap/css/bootstrap-responsive.min.css" />
 <link rel="stylesheet" href="${ctx}/css/style_responsive.css" />
-<link rel="shortcut icon" href="favicon.ico" />        
-<!-- CSS Implementing Plugins -->    
+<link rel="shortcut icon" href="${ctx}/78say.ico" type="image/x-icon" />        
 <link rel="stylesheet" href="${ctx}/plugins/font-awesome/css/font-awesome.css" />
 <link rel="stylesheet" href="${ctx}/plugins/flexslider/flexslider.css" type="text/css" media="screen" />    	
 <link rel="stylesheet" href="${ctx}/plugins/parallax-slider/css/parallax-slider.css" type="text/css" />
