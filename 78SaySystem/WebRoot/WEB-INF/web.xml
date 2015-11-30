@@ -68,6 +68,8 @@
 	<filter-mapping>
 		<filter-name>UrlRewriteFilter</filter-name>
 		<url-pattern>/*</url-pattern>
+		<dispatcher>REQUEST</dispatcher>
+    	<dispatcher>FORWARD</dispatcher>
 	</filter-mapping>
   
   	<!-- 配置Struts2框架 -->
@@ -83,6 +85,11 @@
       	<dispatcher>FORWARD</dispatcher>  
       	<dispatcher>INCLUDE</dispatcher> 
   	</filter-mapping>
+  
+    <error-page>
+		<error-code>301</error-code>
+		<location>/index.jsp</location>
+  	</error-page>
   
   	<error-page>
 		<error-code>404</error-code>

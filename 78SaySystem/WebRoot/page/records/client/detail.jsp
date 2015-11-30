@@ -37,7 +37,9 @@
 	        <ul class="pull-right breadcrumb">
 	            <li><a href="${ctx}/index.html">首页</a> <span class="divider">/</span></li>
 	            <li><a href="${ctx}/records/index.html">吉尼斯纪录</a> <span class="divider">/</span></li>
-	            <li class="active">${entity.title}</li>
+	            <li class="active">${entity.title}
+	            	<c:if test="${page > 1}">(${page})</c:if>
+	            </li>
 	        </ul>
 	    </div><!--/container-->
 	</div>

@@ -41,7 +41,9 @@
 	            <c:if test="${entity.category.id eq 31}">
 	            <li><a href="${ctx}/wonder/picture/index.action">世界之最</a> <span class="divider">/</span></li>
 	            </c:if>
-	            <li class="active">${entity.title}</li>
+	            <li class="active">${entity.title}
+	            	<c:if test="${page > 1}">(${page})</c:if>
+	            </li>
 	        </ul>
 	    </div><!--/container-->
 	</div>
