@@ -7,7 +7,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
   <head>
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>奇葩天下_78Say奇葩说</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">

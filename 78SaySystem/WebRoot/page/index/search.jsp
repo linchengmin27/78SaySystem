@@ -7,16 +7,13 @@
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
 <head>
-    <title>Unify | Welcome...</title>
+    <title>78Say奇葩说-展示全球世界之最、吉尼斯纪录、未解之谜等各类奇葩资讯网</title>
 
     <meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
 	<%@include file="../include/client/style.jsp" %>
 	
 	<script type="text/javascript">
