@@ -69,7 +69,7 @@
                             </ul>
                         	</c:if>
                         	<c:if test="${parent.value.size() eq 0}">
-                        	<a href="${parent.key.url}" class="dropdown-toggle">${parent.key.name}</a>
+                        	<a href="${ctx}/${parent.key.url}" class="dropdown-toggle">${parent.key.name}</a>
                         	</c:if>
                             <b class="caret-out"></b>                        
                         </li>

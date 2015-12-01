@@ -33,6 +33,12 @@
 	</rule>
 	
 	<rule>
+		<note>网站二维码</note>
+		<from>^/mobile/access.html$</from>
+		<to>/mobileAccess.action</to>
+	</rule>
+	
+	<rule>
 		<note>网站搜索</note>
 		<from>^/search/(.*).html$</from>
 		<to>/search.action?key=$1</to>

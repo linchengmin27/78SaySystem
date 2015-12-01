@@ -1,9 +1,6 @@
 package com.lcm.action.client.business;
 
-import java.net.URLDecoder;
 import java.util.List;
-
-import org.apache.struts2.ServletActionContext;
 import org.apache.struts2.convention.annotation.Action;
 import org.apache.struts2.convention.annotation.ParentPackage;
 import org.apache.struts2.convention.annotation.Result;
@@ -51,6 +48,11 @@ public class IndexAction extends BaseAction<Article> {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return SUCCESS;
+	}
+	
+	@Action(value = "/mobileAccess", results = {@Result(name = "success", location = PATH + "/phone.jsp") })  
+	public String mobileAccess() {
 		return SUCCESS;
 	}
 
