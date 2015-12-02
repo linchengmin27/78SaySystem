@@ -67,7 +67,7 @@
 	                	<%--<img src="${ctx}/images/clients/cisco.png" class="img-colorful" alt="" />--%>
 					</a>                        
 	                <div style="display: inline;">
-	                	<h3><a class="linked color-green" href="${ctx}/records/detail/${article.id}.html">${article.title}</a></h3>
+	                	<h3 title="${article.title}"><a class="linked color-green" href="${ctx}/records/detail/${article.id}.html">${article.title}</a></h3>
 	                	<p>${article.content}</p>
 	                </div>
 	            </div>

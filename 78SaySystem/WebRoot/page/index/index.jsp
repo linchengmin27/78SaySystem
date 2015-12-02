@@ -203,7 +203,7 @@
 	                        <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
 	                        <a class="btn-more hover-effect" href="#">阅读更多 +</a>					
 	                    </div>
-	                    <h3>
+	                    <h3 title="${art.title}">
 	                    	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
@@ -237,7 +237,7 @@
 	                        <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
 	                        <a class="btn-more hover-effect" href="${ctx}/records/detail/${art.id}.html">阅读更多 +</a>					
 	                    </div>
-	                    <h3>
+	                    <h3 title="${art.title}">
 	                    	<a href="${ctx}/world/detail/${art.id}.html" title="${art.title}">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
@@ -273,7 +273,7 @@
 	            <c:forEach items="${category14Articles}" var="art">
 	            <li class="span3 thumbnail-style thumbnail-kenburn">
 	                <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 150px;width: 100%;max-width: 270px;"/></div>
-	                <h3>
+	                <h3 title="${art.title}">
 	                	<a href="${ctx}/records/detail/${art.id}.html">
 	                		<c:choose>
                     		<c:when test="${fn:length(art.title) <= 10}">
@@ -315,7 +315,7 @@
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
-	                    <h3>
+	                    <h3 title="${art.title}">
 	                    	<a href="${ctx}/mystery/detail/${art.id}.html">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
@@ -352,7 +352,7 @@
 	                            <div class="zoom-icon"></div>					
 	                        </div>												
 	                    </a>
-	                    <h3>
+	                    <h3 title="${art.title}">
 	                    	<a href="${ctx}/mystery/detail/${art.id}.html">
 	                    		<c:choose>
 	                    		<c:when test="${fn:length(art.title) <= 10}">
@@ -391,13 +391,13 @@
 	                <div class="thumbnail thumbnail-kenburn">
 	                    <div class="overflow-hidden"><img src="${ctx}/${art.logo}" alt="${art.title}" style="height:227px; width: 100%;max-width: 360px;"/></div>
 	                    <div class="caption">
-	                        <h3>
+	                        <h3 title="${art.title}">
 	                        	<c:choose>
-	                    		<c:when test="${fn:length(art.title) <= 8}">
+	                    		<c:when test="${fn:length(art.title) <= 12}">
 	                    		${art.title}
 	                    		</c:when>
 	                    		<c:otherwise>
-	                    		${fn:substring(art.title, 0, 8)}..
+	                    		${fn:substring(art.title, 0, 12)}..
 	                    		</c:otherwise>
 	                    		</c:choose>
 	                        </h3>
@@ -423,40 +423,6 @@
 	
 		</div>
 		<!-- 种类内容 E -->
-		
-		<!-- 热文辣文 S -->
-		<%--
-		<div class="row-fluid">
-	    	<div class="span4">
-				<div class="headline"><h3>热文辣文</h3></div>
-	    		<div class="clearfix">
-	    			<div class="desc">
-	    				<h4>Fully Responsive</h4>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-	    			</div>
-	    		</div>	
-	    	</div>
-	    	<div class="span4">
-	    		<div class="headline"><h3>热文辣文</h3></div>
-	    		<div class="clearfix">
-	    			<div class="desc">
-	    				<h4>HTML5 + CSS3</h4>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-	    			</div>
-	    		</div>	
-	    	</div>
-	    	<div class="span4">
-	    		<div class="headline"><h3>热文辣文</h3></div>
-	    		<div class="clearfix">
-	    			<div class="desc">
-	    				<h4>Launch Ready</h4>
-	                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus etiam sem...</p>
-	    			</div>
-	    		</div>	
-	    	</div>			    
-		</div>
-		--%>
-		<!-- 热吻辣文 E -->
 		
 		<%@include file="../include/client/link.jsp" %>
   	</div>
