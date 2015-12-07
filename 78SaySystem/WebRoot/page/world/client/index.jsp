@@ -12,11 +12,9 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<meta http-equiv="keywords" content="世界之最">
+	<meta http-equiv="description" content="世界之最，网罗各种动物之最、植物之最、人类之最、科技之最、自然之最、机械之最、文物之最、艺术之最
+	、娱乐之最、建筑之最、商业之最、军事之最">
 	<%@include file="../../include/client/style.jsp" %>
 	<link rel="stylesheet" href="${ctx}/plugins/portfolioSorting/css/sorting.css" /> 
 	

@@ -12,11 +12,8 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<meta http-equiv="keywords" content="奇葩新闻">
+	<meta http-equiv="description" content="奇葩新闻，网罗天下各类奇葩新闻、趣闻">
 	<%@include file="../../include/client/style.jsp" %>
 	<script type="text/javascript">
 	function ajaxSearch(page) {

@@ -12,11 +12,8 @@
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+	<meta http-equiv="keywords" content="未解之谜">
+	<meta http-equiv="description" content="未解之谜，网罗天下上各种奇闻怪事、宇宙奥秘、自然之谜、考古发现、科学探秘、历史趣闻及其UFO探秘">
 	<%@include file="../../include/client/style.jsp" %>
 	<link rel="stylesheet" href="${ctx}/plugins/portfolioSorting/css/sorting.css" /> 
 	

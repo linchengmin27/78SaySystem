@@ -9,6 +9,9 @@
 <head>
     <title>78Say奇葩说-展示全球世界之最、吉尼斯纪录、未解之谜等各类奇葩资讯网</title>
 
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
     <meta http-equiv="keywords" content="奇葩说,世界之最,吉尼斯纪录,未解之谜">
 	<meta http-equiv="description" content="78Say奇葩说-展示全球世界之最、吉尼斯纪录、未解之谜等各类奇葩资讯网,我们将提供更多更全的奇葩资讯供您阅读。">
 	<%@include file="../include/client/style.jsp" %>
