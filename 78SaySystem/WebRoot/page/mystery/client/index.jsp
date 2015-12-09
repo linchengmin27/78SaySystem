@@ -74,7 +74,7 @@
 	            	<c:forEach items="${pageBean.list}" var="article" varStatus="st">
 	                <li data-id="id-${st.index + 1}" class="web" title="${article.title}">
 	                    <a href="${ctx}/mystery/detail/${article.id}.html">
-	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 100%;max-width: 270px;"/></em>
+	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 270px;"/></em>
 	                        <span>
 	                            <strong>${article.title}</strong>
 	                            <i style="font-style:normal">日期：${article.displayFullTime}</i>
