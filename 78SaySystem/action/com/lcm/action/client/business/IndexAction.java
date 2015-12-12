@@ -32,7 +32,7 @@ public class IndexAction extends BaseAction<Article> {
 		setAttrToRequest("category1Articles", articleService.getIsPlacedHomeArticleList(1L, 8));
 		setAttrToRequest("category14Articles", articleService.getIsPlacedHomeArticleList(14L, 4));
 		setAttrToRequest("category21Articles", articleService.getIsPlacedHomeArticleList(21L, 8));
-		setAttrToRequest("category29Articles", articleService.getIsPlacedHomeArticleList(29L, 4));
+		setAttrToRequest("category29Articles", articleService.getIsPlacedHomeArticleList(29L, 3));
 		return SUCCESS;
 	}
 
