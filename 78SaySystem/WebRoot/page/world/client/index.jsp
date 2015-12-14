@@ -65,7 +65,16 @@
 	                    <a href="${ctx}/world/detail/${article.id}.html">
 	                    	<em class="overflow-hidden"><img src="${ctx}/${article.logo}" alt="" style="height: 150px;width: 270px;"/></em>
 	                        <span>
-	                            <strong>${article.title}</strong>
+	                            <strong>
+	                            	<c:choose>
+		                    		<c:when test="${fn:length(article.title) <= 12}">
+		                    		${article.title}
+		                    		</c:when>
+		                    		<c:otherwise>
+		                    		${fn:substring(article.title, 0, 12)}..
+		                    		</c:otherwise>
+		                    		</c:choose>
+	                            </strong>
 	                            <i style="font-style:normal">日期：${article.displayFullTime}</i>
 	                        </span>
 	                    </a>
@@ -73,7 +82,7 @@
 	                </c:forEach>
 	            </ul>
 	        </div>   
-	        <%@include file="../../include/client/ajax_pager.jsp" %>  
+	        <%@include file="ajax_pager.jsp" %>  
         	<%@include file="../../include/client/link.jsp" %>                  
 	    </div><!--/row-fluid-->         
 	</div>

@@ -69,7 +69,7 @@
 	                </div>
 	            </div>
 	            </c:forEach>
-	            <%@include file="../../include/client/ajax_pager.jsp" %>  
+	            <%@include file="ajax_pager.jsp" %>  
 	        </div><!--/span9-->
 	
 	    	<div class="span3">

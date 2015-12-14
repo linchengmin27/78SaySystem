@@ -71,7 +71,7 @@
 	                </blockquote>
 	            	
 	                ${chapter.displayContent}
-	                <%@include file="../../include/client/detail_ajax_pager.jsp" %>
+	                <%@include file="detail_ajax_pager.jsp" %>
 	            </div>
 	
 				<hr />
