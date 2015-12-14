@@ -22,3 +22,5 @@ http://www.souid.com/ 世界之最
 图片地址需要修改为：http://localhost:9080/78SaySystem-->[basePath]
 
 INSERT INTO Tag(`name`,isDelete,createTime,modifyTime) VALUES('',0,now(),now());
+
+http://news.163.com/15/1210/11/BAFINVRF00014JB5_2.html
