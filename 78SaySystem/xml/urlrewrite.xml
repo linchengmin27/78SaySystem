@@ -40,6 +40,12 @@
 	
 	<rule>
 		<note>网站搜索</note>
+		<from>^/search/([0-9]\d*)/(.*).html$</from>
+		<to>/search.action?page=$1&amp;key=$2</to>
+	</rule>
+	
+	<rule>
+		<note>网站搜索</note>
 		<from>^/search/(.*).html$</from>
 		<to>/search.action?key=$1</to>
 	</rule>

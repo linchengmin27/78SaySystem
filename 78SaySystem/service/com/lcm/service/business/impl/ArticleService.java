@@ -105,7 +105,7 @@ public class ArticleService extends BaseService implements IArticleService {
 	 * */
 	public long countArticle(String key) {
 		Map<String, Object> paramMap = new LinkedHashMap<String, Object>();
-		String hql = "select count(*) from Article where isDelete=:isDelete and (title like :key or tag like :key) order by createTime desc";
+		String hql = "select count(*) from Article where isDelete=:isDelete and (title like :key or tag like :key or category.name like :key or category.parent.name like :key) order by createTime desc";
 		paramMap.put("isDelete", EntityParamType.IsDelete.NO);
 		paramMap.put("key", addLikeChar(key));
 		

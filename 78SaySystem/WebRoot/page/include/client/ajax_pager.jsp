@@ -38,9 +38,9 @@
     </ul>
 </div>  
 </c:if>
-<c:if test="${pageBean.allRow == 0}">  
+<c:if test="${pageBean.allRow eq 0}">  
 <div class="pagination pagination-centered">
-	没有找到任何记录，我们将在近期推出,尽请期待..		
+	没有找到任何记录，我们将在近期推出,尽请期待..	${pageBean.allRow }	
 </div>
 </c:if> 
 

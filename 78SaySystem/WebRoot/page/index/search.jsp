@@ -19,7 +19,7 @@
 	<script type="text/javascript">
 	function ajaxSearch(page) {
 		var key = '${key}';
-		var url = basePath + '/search.html?key=' + key + '&page=' + page;
+		var url = basePath + '/search/'+ page +'/' + key + '.html';
 		window.location.href = url;
 	}
 	</script>
@@ -57,7 +57,7 @@
 	          <c:if test="${st.index eq 0}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	             	<c:choose>
@@ -84,7 +84,7 @@
 	          <c:if test="${st.index eq 1}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -116,7 +116,7 @@
 	          <c:if test="${st.index eq 2}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -143,7 +143,7 @@
 	          <c:if test="${st.index eq 3}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -175,7 +175,7 @@
 	          <c:if test="${st.index eq 4}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -202,7 +202,7 @@
 	          <c:if test="${st.index eq 5}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -234,7 +234,7 @@
 	          <c:if test="${st.index eq 6}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -261,7 +261,7 @@
 	          <c:if test="${st.index eq 7}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -293,7 +293,7 @@
 	          <c:if test="${st.index eq 8}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
@@ -320,7 +320,7 @@
 	          <c:if test="${st.index eq 9}">
 	          <div class="span6 booking-blocks">
 	             <div class="pull-left booking-img">
-	                <img src="${ctx}/${art.logo}" alt="" />
+	                <img src="${ctx}/${art.logo}" alt="${art.title}" style="height: 95px;"/>
 	             </div>
 	             <div style="display: inline;">
 	                <c:choose>
