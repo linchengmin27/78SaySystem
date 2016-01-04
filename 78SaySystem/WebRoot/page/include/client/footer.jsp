@@ -9,7 +9,7 @@
 	            <p>网站声明：本站所收录所有信息都来自于网上资源，仅供阅读，如有侵权，麻烦<a href="mailto:454939864@qq.com">联系我们</a>。</p>
 			</div>
 			<div class="span4">	
-				<a href="${ctx}/page/index/index.jsp"><img id="logo-footer" src="${ctx}/images/logo.png" class="pull-right" alt="78Say奇葩说" /></a>
+				<a href="${ctx}/index.html"><img id="logo-footer" src="${ctx}/images/logo.png" class="pull-right" alt="78Say奇葩说" /></a>
 			</div>
 		</div>
 	</div>
