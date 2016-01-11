@@ -4,7 +4,7 @@
           "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>	
 	<!-- 指定struts2动态方法调用不可用 -->
-	<!--<constant name="struts.enable.DynamicMethodInvocation" value="false" />-->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
 	
 	<!-- 设置struts2上传文件大小限制 设置为1024M -->
 	<constant name="struts.multipart.maxSize" value="1073741824"/>
